@@ -1,6 +1,6 @@
 version: 2
 
-# Build from the ./ directory with Sphinx
+# Build from the .source/ directory with Sphinx
 sphinx:
   configuration: source/conf.py
 

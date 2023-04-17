@@ -2,6 +2,10 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+from sphinx.highlighting import lexers
+from pygments.lexers.data import YamlLexer
+
+lexers['yaml'] = YamlLexer()
 
 project = 'Ansible Galaxy FortiFlexVM Collection'
 copyright = '2023, Fortinet'
@@ -19,7 +23,7 @@ release = '1.0.0'
 extensions = ['sphinx_search.extension']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -42,7 +46,7 @@ html_static_path = ['_static']
 
 html_css_files = [
     'css/theme_overrides.css',  # override wide tables in RTD theme
-    'css/collapse.css',
+    # 'css/collapse.css',
 ]
 
 html_js_files = [

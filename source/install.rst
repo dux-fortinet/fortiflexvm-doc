@@ -28,8 +28,6 @@ you can install the latest collection by default via command
 ``ansible-galaxy collection install fortinet.fortiflexvm``. you can also
 choose another galaxy version to match your FortiFlexVM device.
 
-Please see the `versioning notes`_ for more recently released collections
+Please see the :doc:`version` for more recently released collections
 and install the ones which are marked ``latest`` for your devices.
-
-.. _versioning notes: ./version.html
 

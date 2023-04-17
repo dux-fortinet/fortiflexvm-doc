@@ -11,6 +11,12 @@ The FortiFlexVM Ansible Collection provides Ansible modules that are able to int
    install
    help
 
+.. toctree::
+   :glob:
+   :caption: modules index
+   :maxdepth: 1
+
+   modules/*
 
 .. toctree::
    :glob:
@@ -18,4 +24,4 @@ The FortiFlexVM Ansible Collection provides Ansible modules that are able to int
    :caption: Appendices
 
    version
-
+   environment_variables

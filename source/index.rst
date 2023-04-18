@@ -9,6 +9,8 @@ The FortiFlexVM Ansible Collection provides Ansible modules that are able to int
    :maxdepth: 1
 
    install
+   token
+   playbook
    help
 
 .. toctree::

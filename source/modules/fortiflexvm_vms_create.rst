@@ -57,6 +57,7 @@ Parameters
 
   :type: str
   :required: False
+  :default: ""
 
 .. option:: endDate
 

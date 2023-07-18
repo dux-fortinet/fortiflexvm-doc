@@ -5,7 +5,7 @@ FortiFlexVM Provider requires an API token to be authenticated.
 
 .. note::
 
-  Before generating an API token for FortiFlexVM, please ensure you have a FortiCloud account and have FlexVM activated.
+  Before generating an API token for FortiFlexVM, please ensure you have a FortiCloud account and have FortiFlex activated.
 
 Step 1 (Optional): Create a new permission profile in IAM
 ------------------------------------------------------------
@@ -14,14 +14,14 @@ Go to the `IAM Website <https://support.fortinet.com/iam/>`_. Click **Permission
 
 On the **New Portal Permission Profile** page, fill in the **Permission Profile Name**, and keep **Status** as Active.
 
-Click the **Add Portal** button. Select **FlexVM**. Then click the **Add** button.
+Click the **Add Portal** button. Select **FortiFlex**. Then click the **Add** button.
 
-You will see **FlexVM** is listed under **PERMISSION PROFILE**. Click **Access** in **FlexVM** and set its **Access Type** as you want. Actions that involve changing or creating data (such as creating a new Configuration or updating a VM) will require ReadWrite permission or above.
+You will see **FortiFlex** is listed under **PERMISSION PROFILE**. Click **Access** in **FortiFlex** and set its **Access Type** as you want. Actions that involve changing or creating data (such as creating a new Configuration or updating a VM) will require ReadWrite permission or above.
 
 Click the **Submit** button in the upper right corner to submit.
 
-Step 2: Create an API User in IAM with permission to access FlexVM
---------------------------------------------------------------------
+Step 2: Create an API User in IAM with permission to access FortiFlex
+---------------------------------------------------------------------
 
 In the `IAM Website <https://support.fortinet.com/iam/>`_, click **Users** in the left navigation bar. On the new page, click **Add New > API User** to create an API User.
 
@@ -44,4 +44,4 @@ To prevent fraud, please set a password when you download your credential file a
 
   If you download the credentials again, the previous password will become invalid.
 
-Refer to the `FlexVM Administration Guide <https://docs.fortinet.com/product/flex-vm/>`_ for more information about FlexVM.
+Refer to the `FortiFlex Administration Guide <https://docs.fortinet.com/product/flex-vm/>`_ for more information about FortiFlex.

@@ -10,11 +10,11 @@ Write a playbook
 
 For each module, we provide an example playbook. You can view it on the module details page.
 
-In this example, we try to get the details of our FlexVM program.
+In this example, we try to get the details of our FortiFlex program.
 
 .. code-block:: yaml
 
-  - name: Get list of VM Programs for the account
+  - name: Get list of Programs for the account
     hosts: localhost
     collections:
       - fortinet.fortiflexvm

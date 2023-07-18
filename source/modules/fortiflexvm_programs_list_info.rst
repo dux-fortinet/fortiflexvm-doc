@@ -1,5 +1,5 @@
-fortiflexvm_programs_list_info - Get list of Flex VM Programs for the account.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_programs_list_info - Get list of FortiFlex Programs for the account.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 1.0.0
 
@@ -9,7 +9,7 @@ fortiflexvm_programs_list_info - Get list of Flex VM Programs for the account.
 
 Synopsis
 --------
-This module retrieves a list of VM Programs using the provided credentials.
+This module retrieves a list of FortiFlex Programs using the provided credentials.
 
 Requirements
 ------------
@@ -24,14 +24,14 @@ Parameters
 
 .. option:: username
 
-  The username to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_USERNAME.
+  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
   :required: False
 
 .. option:: password
 
-  The password to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_PASSWORD.
+  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
   :required: False
@@ -42,7 +42,7 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Get list of VM Programs for the account
+  - name: Get list of programs for the account
     hosts: localhost
     collections:
       - fortinet.fortiflexvm

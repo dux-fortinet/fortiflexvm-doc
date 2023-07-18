@@ -1,5 +1,5 @@
-fortiflexvm_groups_list_info - Get list of FlexVM groups (asset folders).
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_groups_list_info - Get list of FortiFlex groups (asset folders).
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 1.0.0
 
@@ -9,7 +9,7 @@ fortiflexvm_groups_list_info - Get list of FlexVM groups (asset folders).
 
 Synopsis
 --------
-This module returns list of FlexVM groups (asset folders that have FlexVM products in them).
+This module returns list of FortiFlex groups (asset folders that have FortiFlex products in them).
 
 Requirements
 ------------
@@ -24,14 +24,14 @@ Parameters
 
 .. option:: username
 
-  The username to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_USERNAME.
+  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
   :required: False
 
 .. option:: password
 
-  The password to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_PASSWORD.
+  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
   :required: False
@@ -42,7 +42,7 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Get list of FlexVM groups
+  - name: Get list of FortiFlex groups
     hosts: localhost
     collections:
       - fortinet.fortiflexvm
@@ -74,21 +74,21 @@ Return Values
   
   .. option:: folderPath
   
-    The folder path of the FlexVM group.
+    The folder path of the FortiFlex group.
   
     :type: str
     :returned: always
   
   .. option:: availableTokens
   
-    The number of available tokens for the FlexVM group.
+    The number of available tokens for the FortiFlex group.
   
     :type: int
     :returned: always
   
   .. option:: usedTokens
   
-    The number of used tokens for the FlexVM group.
+    The number of used tokens for the FortiFlex group.
   
     :type: int
     :returned: always

@@ -1,7 +1,7 @@
-fortiflexvm_vms_list_info - Get list of existing VMs for FlexVM Configuration.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_entitlements_vm_regenerate_token - Regenerate token for a VM.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: 1.0.0
+.. versionadded:: 2.0.0
 
 .. contents::
    :local:
@@ -9,7 +9,7 @@ fortiflexvm_vms_list_info - Get list of existing VMs for FlexVM Configuration.
 
 Synopsis
 --------
-This module retrieves a list of VMs associated with a specific config ID from FortiFlexVM API using the provided credentials.
+Regenerate token for a VM.
 
 Requirements
 ------------
@@ -24,23 +24,30 @@ Parameters
 
 .. option:: username
 
-  The username to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_USERNAME.
+  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
   :required: False
 
 .. option:: password
 
-  The password to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_PASSWORD.
+  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
   :required: False
 
-.. option:: configId
+.. option:: serialNumber
 
-  The ID of the configuration for which to retrieve the list of VMs.
+  The serial number of the entitlement to update.
 
-  :type: int
+  :type: str
+  :required: True
+
+.. option:: regenerate
+
+  Whether regenerate a new token.
+
+  :type: bool
   :required: True
 
 
@@ -49,68 +56,68 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Get list of VMs for a specific config ID
+  - name: Regenerate token
     hosts: localhost
     collections:
       - fortinet.fortiflexvm
-    vars:
-      username: "<your_own_value>"
-      password: "<your_own_value>"
+    vars_files:
+      - vars/vars.yml
     tasks:
-      - name: Get VMs list
-        fortinet.fortiflexvm.fortiflexvm_vms_list_info:
+      - name: Regenerate token
+        fortinet.fortiflexvm.fortiflexvm_entitlements_vm_regenerate_token:
           username: "{{ username }}"
           password: "{{ password }}"
-          configId: 22
+          serialNumber: "FGVMMLTM23001324"
+          regenerate: true # If you set it as false, FortiFlexvm ansible collection will return an empty list.
         register: result
   
       - name: Display response
         debug:
-          var: result.vms
+          var: result.entitlements
   
 
 
 Return Values
 -------------
 
-.. option:: vms
+.. option:: entitlements
 
-  List of VMs associated with the specified config ID.
+  The entitlement you update. This list only contains one entitlement. It will be empty if you set regenerate as false.
 
   :type: list
   :returned: always
   
   .. option:: serialNumber
   
-    The serial number of the VM.
+    The serial number of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: description
   
-    The description of the VM.
+    The description of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: configId
   
-    The config ID of the VM.
+    The config ID of the entitlement.
   
     :type: int
     :returned: always
   
   .. option:: startDate
   
-    The start date of the VM.
+    The start date of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: endDate
   
-    The end date of the VM.
+    The end date of the entitlement.
   
     :type: str
     :returned: always
@@ -124,14 +131,14 @@ Return Values
   
   .. option:: token
   
-    The token of the VM.
+    The token of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: tokenStatus
   
-    The token status of the VM. Possible values are "NOTUSED" or "USED".
+    The token status of the entitlement. Possible values are "NOTUSED" or "USED".
   
     :type: str
     :returned: always

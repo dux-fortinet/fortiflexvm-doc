@@ -1,7 +1,7 @@
-fortiflexvm_vms_points_info - Get point usage for VMs.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_entitlements_points_info - Get point usage for entitlements.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: 1.0.0
+.. versionadded:: 2.0.0
 
 .. contents::
    :local:
@@ -9,7 +9,7 @@ fortiflexvm_vms_points_info - Get point usage for VMs.
 
 Synopsis
 --------
-Returns total points consumed by one or more virtual machines in a date range.
+Returns total points consumed by one or more entitlements in a date range.
 
 Requirements
 ------------
@@ -24,21 +24,21 @@ Parameters
 
 .. option:: username
 
-  The username to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_USERNAME.
+  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
   :required: False
 
 .. option:: password
 
-  The password to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_PASSWORD.
+  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
   :required: False
 
 .. option:: configId
 
-  The ID of the virtual machine configuration.
+  The ID of the configuration.
 
   :type: int
   :required: True
@@ -63,7 +63,7 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Get point usage for VMs
+  - name: Get point usage for entitlementss
     hosts: localhost
     collections:
       - fortinet.fortiflexvm
@@ -71,8 +71,8 @@ Examples
       username: "<your_own_value>"
       password: "<your_own_value>"
     tasks:
-      - name: Get VMs points
-        fortinet.fortiflexvm.fortiflexvm_vms_points_info:
+      - name: Get entitlements points
+        fortinet.fortiflexvm.fortiflexvm_entitlements_points_info:
           username: "{{ username }}"
           password: "{{ password }}"
           configId: 25
@@ -82,30 +82,30 @@ Examples
   
       - name: Display response
         debug:
-          var: result.vms
+          var: result.entitlements
   
 
 
 Return Values
 -------------
 
-.. option:: vms
+.. option:: entitlements
 
-  List of virtual machines and their consumed points in the specified date range.
+  List of entitlements and their consumed points in the specified date range.
 
   :type: list
   :returned: always
   
   .. option:: serialNumber
   
-    The serial number of the virtual machine.
+    The serial number of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: points
   
-    The total points consumed by the virtual machine in the specified date range.
+    The total points consumed by the entitlement in the specified date range.
   
     :type: int
     :returned: always

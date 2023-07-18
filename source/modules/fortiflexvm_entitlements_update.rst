@@ -1,5 +1,5 @@
-fortiflexvm_vms_update - Update an existing VM.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_entitlements_update - Update an existing entitlement.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 1.0.0
 
@@ -9,7 +9,7 @@ fortiflexvm_vms_update - Update an existing VM.
 
 Synopsis
 --------
-This module updates an existing virtual machine.
+This module updates an existing entitlement.
 
 Requirements
 ------------
@@ -24,57 +24,49 @@ Parameters
 
 .. option:: username
 
-  The username to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_USERNAME.
+  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
   :required: False
 
 .. option:: password
 
-  The password to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_PASSWORD.
+  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
   :required: False
 
 .. option:: serialNumber
 
-  The serial number of the virtual machine to update.
+  The serial number of the entitlement to update.
 
   :type: str
   :required: True
 
 .. option:: configId
 
-  The ID of the virtual machine configuration.
+  The ID of the configuration.
 
   :type: int
   :required: False
 
 .. option:: description
 
-  The description of the virtual machine.
+  The description of the entitlement.
 
   :type: str
   :required: False
 
 .. option:: endDate
 
-  The end date of the virtual machine's validity. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss".
+  The end date of the entitlement's validity. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss".
 
   :type: str
   :required: False
 
-.. option:: regenerateToken
-
-  Whether to regenerate the token assigned to the virtual machine.
-
-  :type: bool
-  :required: False
-  :default: False
-
 .. option:: status
 
-  The status of the virtual machine.
+  The status of the entitlement.
 
   :type: str
   :required: False
@@ -86,7 +78,7 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Update VM
+  - name: Update entitlement
     hosts: localhost
     collections:
       - fortinet.fortiflexvm
@@ -94,8 +86,8 @@ Examples
       username: "<your_own_value>"
       password: "<your_own_value>"
     tasks:
-      - name: Update a Virtual Machine
-        fortinet.fortiflexvm.fortiflexvm_vms_update:
+      - name: Update an entitlement.
+        fortinet.fortiflexvm.fortiflexvm_entitlements_update:
           username: "{{ username }}"
           password: "{{ password }}"
           serialNumber: "FGVMMLTM23001324"
@@ -104,56 +96,55 @@ Examples
           description: "Modify through Ansible"
           endDate: "2023-12-12T00:00:00"
           status: "ACTIVE" # ACTIVE or STOPPED
-          regenerateToken: False
         register: result
   
       - name: Display response
         debug:
-          var: result.vms
+          var: result.entitlements
   
 
 
 Return Values
 -------------
 
-.. option:: vms
+.. option:: entitlements
 
-  The VM you update. This list only contains one VM.
+  The entitlement you update. This list only contains one entitlement.
 
   :type: list
   :returned: always
   
   .. option:: serialNumber
   
-    The serial number of the VM.
+    The serial number of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: description
   
-    The description of the VM.
+    The description of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: configId
   
-    The config ID of the VM.
+    The config ID of the entitlement.
   
     :type: int
     :returned: always
   
   .. option:: startDate
   
-    The start date of the VM.
+    The start date of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: endDate
   
-    The end date of the VM.
+    The end date of the entitlement.
   
     :type: str
     :returned: always
@@ -167,14 +158,14 @@ Return Values
   
   .. option:: token
   
-    The token of the VM.
+    The token of the entitlement.
   
     :type: str
     :returned: always
   
   .. option:: tokenStatus
   
-    The token status of the VM. Possible values are "NOTUSED" or "USED".
+    The token status of the entitlement. Possible values are "NOTUSED" or "USED".
   
     :type: str
     :returned: always

@@ -1,5 +1,5 @@
-fortiflexvm_configs_list_info - Get list of FlexVM Configurations.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_configs_list_info - Get list of FortiFlex Configurations.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 1.0.0
 
@@ -24,14 +24,14 @@ Parameters
 
 .. option:: username
 
-  The username to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_USERNAME.
+  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
   :required: False
 
 .. option:: password
 
-  The password to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_PASSWORD.
+  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
   :required: False
@@ -49,7 +49,7 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Get list of Flex VM Configurations for a Program
+  - name: Get list of FortiFlex Configurations for a Program
     hosts: localhost
     collections:
       - fortinet.fortiflexvm
@@ -57,7 +57,7 @@ Examples
       username: "<your_own_value>"
       password: "<your_own_value>"
     tasks:
-      - name:  Get configs list
+      - name: Get configs list
         fortinet.fortiflexvm.fortiflexvm_configs_list_info:
           username: "{{ username }}"
           password: "{{ password }}"
@@ -194,7 +194,7 @@ Return Values
     
     .. option:: fortiGuardServices
     
-      The fortiguard services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["IPS", "AVDB", "FURL", "IOTH", "FGSA", "ISSS"].
+      The fortiguard services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["IPS", "AVDB", "FGSA", "DLDB", "FAIS", "FURLDNS"].
     
       :type: list
       :returned: always
@@ -215,7 +215,7 @@ Return Values
     
     .. option:: cloudServices
     
-      The cloud services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["FAMS", "SWNM", "FMGC", "AFAC"].
+      The cloud services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["FAMS", "SWNM", "AFAC", "FAZC"].
     
       :type: list
       :returned: always
@@ -258,6 +258,55 @@ Return Values
     .. option:: device
     
       Number of managed devices. A number between 0 and 100000 (inclusive).
+    
+      :type: str
+      :returned: always
+  
+  .. option:: fortiADC
+  
+    FortiADC Virtual Machine.
+  
+    :type: dict
+    :returned: changed
+    
+    .. option:: cpu
+    
+      Number of CPUs. The value of this attribute is one of "1", "2", "4", "8", "16" or "32".
+    
+      :type: str
+      :returned: always
+    
+    .. option:: service
+    
+      Support Service. "FDVSTD" (Standard), "FDVADV" (Advanced) or "FDVFC247" (FortiCare Premium).
+    
+      :type: str
+      :returned: always
+  
+  .. option:: fortiGateHardware
+  
+    FortiGate Hardware.
+  
+    :type: dict
+    :returned: changed
+    
+    .. option:: model
+    
+      The device model. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F).
+    
+      :type: str
+      :returned: always
+    
+    .. option:: service
+    
+      Support Service. Possible values are FGHWFC247 (FortiCare Premium), FGHWFCEL (FortiCare Elite), FDVFC247 (ATP), FGHWUTP (UTP) or FGHWENT (Enterprise).
+    
+      :type: str
+      :returned: always
+    
+    .. option:: addons
+    
+      Addons. Only support "NONE" now, will support "FGHWFCELU" (FortiCare Elite Upgrade) in the future.
     
       :type: str
       :returned: always

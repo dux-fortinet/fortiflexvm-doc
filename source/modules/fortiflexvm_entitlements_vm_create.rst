@@ -1,7 +1,7 @@
-fortiflexvm_vms_create - Create one or more VMs based on a FlexVM Configuration.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_entitlements_vm_create - Create one or more VMs based on a FortiFlex Configuration.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: 1.0.0
+.. versionadded:: 2.0.0
 
 .. contents::
    :local:
@@ -9,7 +9,7 @@ fortiflexvm_vms_create - Create one or more VMs based on a FlexVM Configuration.
 
 Synopsis
 --------
-Create one or more VMs based on a FlexVM Configuration. This API is only used to create one or more VMs. To modify a VM, please refer to fortiflexvm_vms_update.
+Create one or more VMs based on a FortiFlex Configuration. This API is only used to create one or more VMs. To modify a VM, please refer to fortiflexvm_entitlements_update.
 
 Requirements
 ------------
@@ -24,21 +24,21 @@ Parameters
 
 .. option:: username
 
-  The username to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_USERNAME.
+  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
   :required: False
 
 .. option:: password
 
-  The password to authenticate. If not declared, the code will read the environment variable FLEXVM_ACCESS_PASSWORD.
+  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
   :required: False
 
 .. option:: configId
 
-  The ID of a Flex VM Configuration.
+  The ID of a FortiFlex Configuration.
 
   :type: int
   :required: True
@@ -61,7 +61,7 @@ Parameters
 
 .. option:: endDate
 
-  VM(s) end date. It can not be before today's date or after the program's end date. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss".
+  VM(s) end date. It can not be before today's date or after the program's end date. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss". If not specify, it will use the program's end date automatically.
 
   :type: str
   :required: False
@@ -87,12 +87,12 @@ Examples
       username: "<your_own_value>"
       password: "<your_own_value>"
     tasks:
-      - name: Create Virtual Machines
-        fortinet.fortiflexvm.fortiflexvm_vms_create:
+      - name: Create Virtual Machines.
+        fortinet.fortiflexvm.fortiflexvm_entitlements_vm_create:
           username: "{{ username }}"
           password: "{{ password }}"
           configId: 42
-          count: 1
+          count: 1 # If you set it as 0, FortiFlexvm ansible collection will not create any vm.
           description: "Create through Ansible"
           endDate: "2023-11-11T00:00:00"
           folderPath: "My Assets"
@@ -100,16 +100,16 @@ Examples
   
       - name: Display response
         debug:
-          var: result.vms
+          var: result.entitlements
   
 
 
 Return Values
 -------------
 
-.. option:: vms
+.. option:: entitlements
 
-  A list of virtual machines and their details.
+  A list of virtual machine entitlements and their details.
 
   :type: list
   :returned: always

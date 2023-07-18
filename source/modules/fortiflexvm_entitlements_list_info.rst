@@ -1,7 +1,7 @@
-fortiflexvm_groups_nexttoken_info - Get net available (unused) token.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_entitlements_list_info - Get list of existing entitlements for a FlexVM Configuration.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: 1.0.0
+.. versionadded:: 2.0.0
 
 .. contents::
    :local:
@@ -9,7 +9,7 @@ fortiflexvm_groups_nexttoken_info - Get net available (unused) token.
 
 Synopsis
 --------
-Returns first available token by asset folder or Configuration id (folder path, or config id or both can be specified in request).
+This module retrieves a list of entitlements associated with a specific config ID from FortiFlexVM API using the provided credentials.
 
 Requirements
 ------------
@@ -36,19 +36,12 @@ Parameters
   :type: str
   :required: False
 
-.. option:: folderPath
-
-  Folder path. Please declare at least one of the two arguments folderPath and configId.
-
-  :type: str
-  :required: False
-
 .. option:: configId
 
-  The ID of a Flex VM Configuration. Please declare at least one of the two arguments folderPath and configId.
+  The ID of the configuration for which to retrieve the list of VMs.
 
   :type: int
-  :required: False
+  :required: True
 
 
 Examples
@@ -56,7 +49,7 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Get next available (unused) token
+  - name: Get list of entitlements for a specific config ID
     hosts: localhost
     collections:
       - fortinet.fortiflexvm
@@ -64,13 +57,10 @@ Examples
       username: "<your_own_value>"
       password: "<your_own_value>"
     tasks:
-      - name: Get groups nexttoken
-        fortinet.fortiflexvm.fortiflexvm_groups_nexttoken_info:
+      - name: Get entitlements list
+        fortinet.fortiflexvm.fortiflexvm_entitlements_list_info:
           username: "{{ username }}"
           password: "{{ password }}"
-          # Please declare at least one of the following two arguments: folderPath and configId.
-          # You can annotate at most one argument that you don't want to specify.
-          folderPath: "My Assets"
           configId: 22
         register: result
   
@@ -85,16 +75,16 @@ Return Values
 
 .. option:: entitlements
 
-  Next available (unused) token. This list only has one element.
+  List of entitlements associated with the specified config ID.
 
   :type: list
   :returned: always
   
-  .. option:: configId
+  .. option:: serialNumber
   
-    The config ID of the entitlement.
+    The serial number of the entitlement.
   
-    :type: int
+    :type: str
     :returned: always
   
   .. option:: description
@@ -104,23 +94,23 @@ Return Values
     :type: str
     :returned: always
   
-  .. option:: endDate
+  .. option:: configId
   
-    The end date of the entitlement.
+    The config ID of the entitlement.
   
-    :type: str
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the entitlement.
-  
-    :type: str
+    :type: int
     :returned: always
   
   .. option:: startDate
   
     The start date of the entitlement.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: endDate
+  
+    The end date of the entitlement.
   
     :type: str
     :returned: always
@@ -141,7 +131,7 @@ Return Values
   
   .. option:: tokenStatus
   
-    The token status of the entitlement.
+    The token status of the entitlement. Possible values are "NOTUSED" or "USED".
   
     :type: str
     :returned: always

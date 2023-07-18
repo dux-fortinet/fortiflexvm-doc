@@ -98,8 +98,9 @@ for module_name in module_names:
 
     # Write new document
     output_path = os.path.join(OUTPUT_DIR, module_name+".rst")
-    output_data = template_data.format(name = documentation_dict["module"], 
-                                    short_description = documentation_dict["short_description"],
+    title = "{} - {}\n{}".format(documentation_dict["module"], documentation_dict["short_description"],
+                                  "+"*(3+len(documentation_dict["module"])+len(documentation_dict["short_description"])))
+    output_data = template_data.format(title = title,
                                     description = " ".join(documentation_dict["description"]),
                                     version_added = documentation_dict["version_added"],
                                     example = "\n  ".join(example_data.split("\n")),

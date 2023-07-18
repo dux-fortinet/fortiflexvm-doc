@@ -36,4 +36,4 @@ In this example, we try to get the details of our FlexVM program.
 There are several options which might need you special care:
 
 -  **collections** : The namespace must be ``fortinet.fortiflexvm``.
--  **username**, **password**: To get a username and password, please refer to :doc:`token`. You need to specify it in the playbook or the environment variable: ``FLEXVM_ACCESS_USERNAME`` and ``FLEXVM_ACCESS_PASSWORD``.
+-  **username**, **password**: To get a username and password, please refer to :doc:`token`. You need to specify it in the playbook or the environment variable: ``FORTIFLEX_ACCESS_USERNAME`` and ``FORTIFLEX_ACCESS_PASSWORD``.

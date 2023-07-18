@@ -93,8 +93,8 @@ Examples
           serialNumber: "FGVMMLTM23001324"
           # Please specify configId if you want to update configId, description or endDate
           configId: 3196
-          description: "Modify through Ansible"
-          endDate: "2023-12-12T00:00:00"
+          description: "Modify through Ansible" # Optional.
+          endDate: "2023-12-12T00:00:00"  # Optional. If not set, it will use the program end date automatically.
           status: "ACTIVE" # ACTIVE or STOPPED
         register: result
   

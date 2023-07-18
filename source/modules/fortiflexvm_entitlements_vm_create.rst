@@ -93,9 +93,9 @@ Examples
           password: "{{ password }}"
           configId: 42
           count: 1 # If you set it as 0, FortiFlexvm ansible collection will not create any vm.
-          description: "Create through Ansible"
-          endDate: "2023-11-11T00:00:00"
-          folderPath: "My Assets"
+          description: "Create through Ansible" # Optional.
+          endDate: "2023-11-11T00:00:00" # Optional. If not set, it will use the program end date automatically.
+          folderPath: "My Assets" # Optional. If not set, new VM will be in "My Assets"
         register: result
   
       - name: Display response

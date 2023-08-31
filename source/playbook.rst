@@ -5,6 +5,12 @@ This document explains how to run your first FortiFlexVM Ansible playbook.
 
 --------------
 
+.. warning::
+  Due to the design of the FortiFlex API, all modules ending with ``_create`` are not idempotent.
+  You will create a correspond resource every time you call the modules end with ``_create``.
+
+  It is highly recommended you use a separate playbook to run ``_create`` modules, and only run it when you need new resources.
+
 Write a playbook
 ~~~~~~~~~~~~~~~~~~
 

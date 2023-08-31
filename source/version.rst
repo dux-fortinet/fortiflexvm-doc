@@ -4,7 +4,9 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.0.0 ``latest``    | 2023/07/20     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.0`` |
+| 2.0.1 ``latest``    | 2023/09/08     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.1`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.0.0               | 2023/07/20     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.0`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 1.0.0               | 2023/04/18     | ``ansible-galaxy collection install fortinet.fortiflexvm:1.0.0`` |
 +---------------------+----------------+------------------------------------------------------------------+
@@ -14,8 +16,22 @@ FortiFlexVM Galaxy Versions and Release Notes
 renew your existing local installation.
 
 
+Release Galaxy 2.0.1
+--------------------
+
+Improve document. Release to Ansible Automation Hub.
+
+Bugfixes
+^^^^^^^^
+
+- Improve document quality.
+
+
+
 Release Galaxy 2.0.0
 --------------------
+
+Update FortiFlexVM Ansible to support FortiFlex v2.
 
 Major Changes
 ^^^^^^^^^^^^^
@@ -54,6 +70,8 @@ New Modules
 
 Release Galaxy 1.0.0
 --------------------
+
+First release of the fortiflex.
 
 New Modules
 ^^^^^^^^^^^

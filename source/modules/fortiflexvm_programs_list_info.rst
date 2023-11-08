@@ -79,20 +79,6 @@ Return Values
     :type: int
     :returned: always
   
-  .. option:: serialNumber
-  
-    The serial number of the program.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: startDate
-  
-    The start date of the program.
-  
-    :type: str
-    :returned: always
-  
   .. option:: endDate
   
     The end date of the program.
@@ -105,6 +91,20 @@ Return Values
     A flag indicating whether the program has support coverage.
   
     :type: bool
+    :returned: always
+  
+  .. option:: serialNumber
+  
+    The serial number of the program.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: startDate
+  
+    The start date of the program.
+  
+    :type: str
     :returned: always
 
 Authors

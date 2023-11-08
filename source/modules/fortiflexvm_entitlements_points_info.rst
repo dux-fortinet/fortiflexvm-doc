@@ -9,7 +9,7 @@ fortiflexvm_entitlements_points_info - Get point usage for entitlements.
 
 Synopsis
 --------
-Returns total points consumed by one or more entitlements in a date range.
+Returns total points consumed by one or more entitlements in a date range. Either configId or (accountId and programSerialNumber) should be provided.
 
 Requirements
 ------------
@@ -36,23 +36,44 @@ Parameters
   :type: str
   :required: False
 
+.. option:: accountId
+
+  Account ID.
+
+  :type: int
+  :required: False
+
 .. option:: configId
 
   The ID of the configuration.
 
   :type: int
-  :required: True
-
-.. option:: startDate
-
-  The start date of the date range to query. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is YYYY-MM-DD.
-
-  :type: str
-  :required: True
+  :required: False
 
 .. option:: endDate
 
   The end date of the date range to query. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is YYYY-MM-DD.
+
+  :type: str
+  :required: True
+
+.. option:: programSerialNumber
+
+  The serial number of your FortiFlex Program.
+
+  :type: str
+  :required: False
+
+.. option:: serialNumber
+
+  The entitlement serial number. Instead of configId you can pass serialNumber to get results for one VM only.
+
+  :type: str
+  :required: False
+
+.. option:: startDate
+
+  The start date of the date range to query. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is YYYY-MM-DD.
 
   :type: str
   :required: True
@@ -75,7 +96,12 @@ Examples
         fortinet.fortiflexvm.fortiflexvm_entitlements_points_info:
           username: "{{ username }}"
           password: "{{ password }}"
-          configId: 25
+          # Either configId or (accountId and programSerialNumber) should be provided.
+          # configId: 3196
+          accountId: 12345
+          programSerialNumber: "ELAVMS0XXXXXX"
+          # Instead of configId you can pass serialNumber to get results for one VM only.
+          serialNumber: "FZVMMLTMXXXXXX"
           startDate: "2020-10-01"
           endDate: "2020-10-25"
         register: result
@@ -96,11 +122,11 @@ Return Values
   :type: list
   :returned: always
   
-  .. option:: serialNumber
+  .. option:: accountId
   
-    The serial number of the entitlement.
+    The ID of the account associated with the program.
   
-    :type: str
+    :type: int
     :returned: always
   
   .. option:: points
@@ -108,6 +134,13 @@ Return Values
     The total points consumed by the entitlement in the specified date range.
   
     :type: int
+    :returned: always
+  
+  .. option:: serialNumber
+  
+    The serial number of the entitlement.
+  
+    :type: str
     :returned: always
 
 Authors

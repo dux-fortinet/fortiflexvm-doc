@@ -36,6 +36,13 @@ Parameters
   :type: str
   :required: False
 
+.. option:: accountId
+
+  Account ID.
+
+  :type: str
+  :required: False
+
 
 Examples
 -------------
@@ -54,6 +61,7 @@ Examples
         fortinet.fortiflexvm.fortiflexvm_groups_list_info:
           username: "{{ username }}"
           password: "{{ password }}"
+          # accountId: 12345 # optional
         register: result
   
       - name: Display response
@@ -72,18 +80,25 @@ Return Values
   :type: list
   :returned: always
   
-  .. option:: folderPath
+  .. option:: accountId
   
-    The folder path of the FortiFlex group.
+    Account ID.
   
-    :type: str
-    :returned: always
+    :type: int
+    :returned: if specified account ID in the argument
   
   .. option:: availableTokens
   
     The number of available tokens for the FortiFlex group.
   
     :type: int
+    :returned: always
+  
+  .. option:: folderPath
+  
+    The folder path of the FortiFlex group.
+  
+    :type: str
     :returned: always
   
   .. option:: usedTokens

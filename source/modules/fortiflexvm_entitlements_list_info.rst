@@ -9,7 +9,7 @@ fortiflexvm_entitlements_list_info - Get list of existing entitlements for a Fle
 
 Synopsis
 --------
-This module retrieves a list of entitlements associated with a specific config ID from FortiFlexVM API using the provided credentials.
+This module retrieves a list of entitlements for a configuration. Either configId or (accountId and programSerialNumber) should be provided.
 
 Requirements
 ------------
@@ -36,12 +36,26 @@ Parameters
   :type: str
   :required: False
 
+.. option:: accountId
+
+  Account ID.
+
+  :type: int
+  :required: False
+
 .. option:: configId
 
   The ID of the configuration for which to retrieve the list of VMs.
 
   :type: int
-  :required: True
+  :required: False
+
+.. option:: programSerialNumber
+
+  The serial number of your FortiFlex Program.
+
+  :type: str
+  :required: False
 
 
 Examples
@@ -61,7 +75,10 @@ Examples
         fortinet.fortiflexvm.fortiflexvm_entitlements_list_info:
           username: "{{ username }}"
           password: "{{ password }}"
+          # Either configId or (accountId and programSerialNumber) should be provided.
           configId: 22
+          # accountId: 12345
+          # programSerialNumber: "ELAVMS00XXXXX"
         register: result
   
       - name: Display response
@@ -80,18 +97,11 @@ Return Values
   :type: list
   :returned: always
   
-  .. option:: serialNumber
+  .. option:: accountId
   
-    The serial number of the entitlement.
+    Account ID.
   
-    :type: str
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the entitlement.
-  
-    :type: str
+    :type: int
     :returned: always
   
   .. option:: configId
@@ -101,9 +111,9 @@ Return Values
     :type: int
     :returned: always
   
-  .. option:: startDate
+  .. option:: description
   
-    The start date of the entitlement.
+    The description of the entitlement.
   
     :type: str
     :returned: always
@@ -111,6 +121,20 @@ Return Values
   .. option:: endDate
   
     The end date of the entitlement.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: serialNumber
+  
+    The serial number of the entitlement.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: startDate
+  
+    The start date of the entitlement.
   
     :type: str
     :returned: always

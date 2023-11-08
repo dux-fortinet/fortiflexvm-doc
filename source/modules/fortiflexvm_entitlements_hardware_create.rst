@@ -97,6 +97,13 @@ Return Values
   :type: list
   :returned: always
   
+  .. option:: accountId
+  
+    The ID of the account associated with the program.
+  
+    :type: int
+    :returned: always
+  
   .. option:: configId
   
     The ID of the entitlement configuration.

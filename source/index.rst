@@ -1,4 +1,4 @@
-Welcome to Ansible Galaxy FortiFlexVM Collection Documentation 2.0.1!
+Welcome to Ansible Galaxy FortiFlexVM Collection Documentation 2.0.2!
 ============================================================================
 
 The FortiFlexVM Ansible Collection provides Ansible modules that are able to interact with FortiFlex.

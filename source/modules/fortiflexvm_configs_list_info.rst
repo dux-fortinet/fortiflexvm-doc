@@ -36,6 +36,13 @@ Parameters
   :type: str
   :required: False
 
+.. option:: accountId
+
+  Account ID.
+
+  :type: int
+  :required: False
+
 .. option:: programSerialNumber
 
   The serial number of the program to get configs for.
@@ -61,6 +68,7 @@ Examples
         fortinet.fortiflexvm.fortiflexvm_configs_list_info:
           username: "{{ username }}"
           password: "{{ password }}"
+          # accountId: 12345 # optional
           programSerialNumber: "ELAVMS000000XXXX"
         register: result
   
@@ -79,6 +87,13 @@ Return Values
 
   :type: list
   :returned: always
+  
+  .. option:: accountId
+  
+    The ID of the account associated with the program.
+  
+    :type: int
+    :returned: always
   
   .. option:: id
   
@@ -113,7 +128,6 @@ Return Values
     FortiGate Virtual Machine - Service Bundle.
   
     :type: dict
-    :returned: changed
     
     .. option:: cpu
     
@@ -124,7 +138,7 @@ Return Values
     
     .. option:: service
     
-      he value of this attribute is one of "FC" (FortiCare), "UTM", "ENT" (Enterprise) or "ATP".
+      The value of this attribute is one of "FC" (FortiCare), "UTP", "ENT" (Enterprise) or "ATP".
     
       :type: str
       :returned: always
@@ -141,7 +155,6 @@ Return Values
     FortiManager Virtual Machine.
   
     :type: dict
-    :returned: changed
     
     .. option:: device
     
@@ -162,7 +175,6 @@ Return Values
     FortiWeb Virtual Machine - Service Bundle.
   
     :type: dict
-    :returned: changed
     
     .. option:: cpu
     
@@ -183,7 +195,6 @@ Return Values
     FortiGate Virtual Machine - A La Carte Services.
   
     :type: dict
-    :returned: changed
     
     .. option:: cpu
     
@@ -220,12 +231,51 @@ Return Values
       :type: list
       :returned: always
   
+  .. option:: fortiClientEMSOP
+  
+    FortiClient EMS On-Prem.
+  
+    :type: dict
+    
+    .. option:: ZTNA
+    
+      ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+      :returned: always
+    
+    .. option:: EPP
+    
+      EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+      :returned: always
+    
+    .. option:: chromebook
+    
+      Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+      :returned: always
+    
+    .. option:: service
+    
+      Support Services. Possible value is "FCTFC247" (FortiCare Premium)
+    
+      :type: str
+      :returned: always
+    
+    .. option:: addons
+    
+      Addons. A list. Possible value is "BPS" ( FortiCare Best Practice).
+    
+      :type: list
+  
   .. option:: fortiAnalyzer
   
     FortiAnalyzer Virtual Machine.
   
     :type: dict
-    :returned: changed
     
     .. option:: storage
     
@@ -253,7 +303,6 @@ Return Values
     FortiPortal Virtual Machine.
   
     :type: dict
-    :returned: changed
     
     .. option:: device
     
@@ -267,7 +316,6 @@ Return Values
     FortiADC Virtual Machine.
   
     :type: dict
-    :returned: changed
     
     .. option:: cpu
     
@@ -288,11 +336,10 @@ Return Values
     FortiGate Hardware.
   
     :type: dict
-    :returned: changed
     
     .. option:: model
     
-      The device model. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F).
+      The device model. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F), FWF40F (FortiWifi-40F), FWF60F (FortiWifi-60F), FGR60F (FortiGateRugged-60F), FR70FB (FortiGateRugged-70F), FGT81F (FortiGate-81F), FG101E (FortiGate-101E), FG4H1F (FortiGate-401F), FG1K0F (FortiGate-1000F), FG180F (FortiGate-1800F), F2K60F (FortiGate-2600F), FG3K0F (FortiGate-3000F), FG3K1F (FortiGate-3001F), FG3K2F (FortiGate-3200F).
     
       :type: str
       :returned: always
@@ -306,9 +353,49 @@ Return Values
     
     .. option:: addons
     
-      Addons. Only support "NONE" now, will support "FGHWFCELU" (FortiCare Elite Upgrade) in the future.
+      Addons. A list, possible values are FGHWFCELU (FortiCare Elite Upgrade), FGHWFAMS (FortiGate Cloud Management), FGHWFAIS (AI-Based In-line Sandbox), FGHWSWNM (SD-WAN Underlay), FGHWDLDB (FortiGuard DLP), FGHWFAZC (FortiAnalyzer Cloud), FGHWSOCA (SOCaaS), FGHWMGAS (Managed FortiGate), FGHWSPAL (SD-WAN Connector for FortiSASE), FGHWFCSS (FortiConverter Service).
     
-      :type: str
+      :type: list
+      :returned: always
+  
+  .. option:: fortiCloudPrivate
+  
+    FortiWeb Cloud, Private.
+  
+    :type: dict
+    
+    .. option:: throughput
+    
+      Average Throughput (Mbps). Possible values are 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
+    
+      :type: int
+      :returned: always
+    
+    .. option:: applications
+    
+      Number of web applications. Number between 0 and 2000 (inclusive).
+    
+      :type: int
+      :returned: always
+  
+  .. option:: fortiCloudPublic
+  
+    FortiWeb Cloud, Public.
+  
+    :type: dict
+    
+    .. option:: throughput
+    
+      Average Throughput (Mbps). Possible values are 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
+    
+      :type: int
+      :returned: always
+    
+    .. option:: applications
+    
+      Number of web applications. Number between 0 and 2000 (inclusive).
+    
+      :type: int
       :returned: always
 
 Authors

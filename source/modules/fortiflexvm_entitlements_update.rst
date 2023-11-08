@@ -114,18 +114,11 @@ Return Values
   :type: list
   :returned: always
   
-  .. option:: serialNumber
+  .. option:: accountId
   
-    The serial number of the entitlement.
+    The ID of the account associated with the program.
   
-    :type: str
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the entitlement.
-  
-    :type: str
+    :type: int
     :returned: always
   
   .. option:: configId
@@ -135,9 +128,9 @@ Return Values
     :type: int
     :returned: always
   
-  .. option:: startDate
+  .. option:: description
   
-    The start date of the entitlement.
+    The description of the entitlement.
   
     :type: str
     :returned: always
@@ -145,6 +138,20 @@ Return Values
   .. option:: endDate
   
     The end date of the entitlement.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: serialNumber
+  
+    The serial number of the entitlement.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: startDate
+  
+    The start date of the entitlement.
   
     :type: str
     :returned: always

@@ -36,9 +36,9 @@ Parameters
   :type: str
   :required: False
 
-.. option:: folderPath
+.. option:: accountId
 
-  Folder path. Please declare at least one of the two arguments folderPath and configId.
+  Account ID.
 
   :type: str
   :required: False
@@ -49,6 +49,15 @@ Parameters
 
   :type: int
   :required: False
+  :default: 0
+
+.. option:: folderPath
+
+  Folder path. Please declare at least one of the two arguments folderPath and configId.
+
+  :type: str
+  :required: False
+  :default: ""
 
 
 Examples
@@ -69,9 +78,10 @@ Examples
           username: "{{ username }}"
           password: "{{ password }}"
           # Please declare at least one of the following two arguments: folderPath and configId.
-          # You can annotate at most one argument that you don't want to specify.
+          # You can comment at most one argument that you don't want to specify.
           folderPath: "My Assets"
           configId: 22
+          # accountId: 12345 # optional
         register: result
   
       - name: Display response
@@ -89,6 +99,13 @@ Return Values
 
   :type: list
   :returned: always
+  
+  .. option:: accountId
+  
+    Account ID.
+  
+    :type: int
+    :returned: if specified account ID in the argument
   
   .. option:: configId
   

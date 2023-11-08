@@ -36,18 +36,18 @@ Parameters
   :type: str
   :required: False
 
-.. option:: serialNumber
-
-  The serial number of the entitlement to update.
-
-  :type: str
-  :required: True
-
 .. option:: regenerate
 
   Whether regenerate a new token.
 
   :type: bool
+  :required: True
+
+.. option:: serialNumber
+
+  The serial number of the entitlement to update.
+
+  :type: str
   :required: True
 
 
@@ -87,18 +87,11 @@ Return Values
   :type: list
   :returned: always
   
-  .. option:: serialNumber
+  .. option:: accountId
   
-    The serial number of the entitlement.
+    Account ID.
   
-    :type: str
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the entitlement.
-  
-    :type: str
+    :type: int
     :returned: always
   
   .. option:: configId
@@ -108,9 +101,9 @@ Return Values
     :type: int
     :returned: always
   
-  .. option:: startDate
+  .. option:: description
   
-    The start date of the entitlement.
+    The description of the entitlement.
   
     :type: str
     :returned: always
@@ -118,6 +111,20 @@ Return Values
   .. option:: endDate
   
     The end date of the entitlement.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: serialNumber
+  
+    The serial number of the entitlement.
+  
+    :type: str
+    :returned: always
+  
+  .. option:: startDate
+  
+    The start date of the entitlement.
   
     :type: str
     :returned: always

@@ -18,6 +18,21 @@ FortiFlexVM Galaxy Versions and Release Notes
 renew your existing local installation.
 
 
+Release Galaxy 2.0.2
+--------------------
+
+Support 3 new configurations.
+
+Bugfixes
+^^^^^^^^
+
+- Support 3 new configurations, fortiClientEMSOP, fortiCloudPrivate and fortiCloudPublic.
+- Support optional argument accountId in some modules.
+- Update parameters for existing products.
+- entitlements_points_info supports getting results for specified entitlement.
+
+
+
 Release Galaxy 2.0.1
 --------------------
 

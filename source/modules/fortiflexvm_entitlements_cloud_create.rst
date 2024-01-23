@@ -1,7 +1,7 @@
-fortiflexvm_entitlements_vm_regenerate_token - Regenerate token for a VM.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_entitlements_cloud_create - Create one cloud entitlement based on a FortiFlex Configuration.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: 2.0.0
+.. versionadded:: 2.1.0
 
 .. contents::
    :local:
@@ -9,7 +9,7 @@ fortiflexvm_entitlements_vm_regenerate_token - Regenerate token for a VM.
 
 Synopsis
 --------
-Regenerate token for a VM.
+Create one cloud entitlement on a FortiFlex Configuration. This API is only used to create one cloud entitlement. To modify an entitlement, please refer to fortiflexvm_entitlements_update.
 
 Requirements
 ------------
@@ -36,19 +36,19 @@ Parameters
   :type: str
   :required: False
 
-.. option:: regenerate
+.. option:: configId
 
-  Whether regenerate a new token.
+  The ID of a FortiFlex Configuration.
 
-  :type: bool
+  :type: int
   :required: True
 
-.. option:: serialNumber
+.. option:: endDate
 
-  The serial number of the entitlement to update.
+  VM(s) end date. It can not be before today's date or after the program's end date. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss". If not specify, it will use the program's end date automatically.
 
   :type: str
-  :required: True
+  :required: False
 
 
 Examples
@@ -56,19 +56,19 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Regenerate token
+  - name: Create cloud entitlement.
     hosts: localhost
     collections:
       - fortinet.fortiflexvm
     vars_files:
       - vars/vars.yml
     tasks:
-      - name: Regenerate token
-        fortinet.fortiflexvm.fortiflexvm_entitlements_vm_regenerate_token:
+      - name: Create Cloud Entitlement.
+        fortinet.fortiflexvm.fortiflexvm_entitlements_cloud_create:
           username: "{{ username }}"
           password: "{{ password }}"
-          serialNumber: "FGVMMLTM23001324"
-          regenerate: true # If you set it as false, FortiFlexvm ansible collection will return an empty list.
+          configId: 12345
+          endDate: "2024-02-12T00:00:00" # Optional. If not set, it will use the program end date automatically.
         register: result
   
       - name: Display response
@@ -82,70 +82,70 @@ Return Values
 
 .. option:: entitlements
 
-  The entitlement you update. This list only contains one entitlement. It will be empty if you set regenerate as false.
+  A list of virtual machine entitlements and their details.
 
   :type: list
   :returned: always
   
   .. option:: accountId
   
-    Account ID.
+    The ID of the account associated with the program.
   
     :type: int
     :returned: always
   
   .. option:: configId
   
-    The config ID of the entitlement.
+    The ID of the virtual machine configuration.
   
     :type: int
     :returned: always
   
   .. option:: description
   
-    The description of the entitlement.
+    The description of the virtual machine.
   
     :type: str
     :returned: always
   
   .. option:: endDate
   
-    The end date of the entitlement.
+    The end date of the virtual machine's validity.
   
     :type: str
     :returned: always
   
   .. option:: serialNumber
   
-    The serial number of the entitlement.
+    The serial number of the virtual machine.
   
     :type: str
     :returned: always
   
   .. option:: startDate
   
-    The start date of the entitlement.
+    The start date of the virtual machine's validity.
   
     :type: str
     :returned: always
   
   .. option:: status
   
-    The status of the VM. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".
+    The status of the virtual machine.
   
     :type: str
     :returned: always
   
   .. option:: token
   
-    The token of the entitlement.
+    The token assigned to the virtual machine.
   
     :type: str
     :returned: always
   
   .. option:: tokenStatus
   
-    The token status of the entitlement. Possible values are "NOTUSED" or "USED".
+    The status of the token assigned to the virtual machine.
   
     :type: str
     :returned: always

@@ -111,7 +111,7 @@ Return Values
 Authors
 -------
 
-- Xinwei Du (@DrMofu)
+- Xinwei Du (@dux-fortinet)
 
 .. hint::
     If you notice any issues in this documentation, you can create a pull request to improve it.

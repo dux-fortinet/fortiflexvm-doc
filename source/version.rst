@@ -4,7 +4,9 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.0.2 ``latest``    | 2023/11/17     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.2`` |
+| 2.1.0 ``latest``    | 2024/01/26     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.3`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.0.2               | 2023/11/15     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.2`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 2.0.1               | 2023/09/06     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.1`` |
 +---------------------+----------------+------------------------------------------------------------------+
@@ -16,6 +18,29 @@ FortiFlexVM Galaxy Versions and Release Notes
 **Note**: Use ``-f`` option (i.e.
 ``ansible-galaxy collection install -f fortinet.fortiflexvm:x.x.x``) to
 renew your existing local installation.
+
+Release Galaxy 2.1.0
+--------------------
+
+Support 1 new configuration.
+
+Minor Changes
+^^^^^^^^^^^^^
+
+- One new module entitlements_cloud_create.
+- Support new configurations, fortiClientEMSCloud.
+
+Bugfixes
+^^^^^^^^
+
+- Change the tpye of parameter cpu in fortiGateBundle from str to int.
+- Configuration fortiGateBundle supports new parameters, fortiGuardServices, cloudServices and supportService.
+
+New Modules
+^^^^^^^^^^^
+
+- fortinet.fortiflexvm.fortiflexvm_entitlements_cloud_create - Create one cloud entitlement based on a FortiFlex Configuration.
+
 
 
 Release Galaxy 2.0.2

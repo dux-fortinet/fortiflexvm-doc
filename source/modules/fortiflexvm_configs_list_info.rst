@@ -133,22 +133,37 @@ Return Values
     
       The number of CPUs. The value of this attribute is one of "1", "2", "4", "8", "16",  "32" or "2147483647" (unlimited).
     
-      :type: str
-      :returned: always
+      :type: int
     
     .. option:: service
     
       The value of this attribute is one of "FC" (FortiCare), "UTP", "ENT" (Enterprise) or "ATP".
     
       :type: str
-      :returned: always
     
     .. option:: vdom
     
       Number of VDOMs. A number between 0 and 500 (inclusive). The default number is 0.
     
       :type: int
-      :returned: always
+    
+    .. option:: fortiGuardServices
+    
+      Fortiguard Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTAVDB", "FGTFAIS", "FGTISSS", "FGTDLDB", "FGTFGSA", "FGTFCSS"].
+    
+      :type: list
+    
+    .. option:: cloudServices
+    
+      Cloud Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTFAMS", "FGTSWNM", "FGTSOCA", "FGTFAZC", "FGTSWOS", "FGTFSPA"].
+    
+      :type: list
+    
+    .. option:: supportService
+    
+      Suport service. "FGTFCELU" or "NONE". Default is "NONE".
+    
+      :type: str
   
   .. option:: fortiManager
   
@@ -161,14 +176,12 @@ Return Values
       Number of managed devices. A number between 1 and 100000 (inclusive).
     
       :type: int
-      :returned: always
     
     .. option:: adom
     
       Number of ADOMs. A number between 1 and 100000 (inclusive).
     
       :type: int
-      :returned: always
   
   .. option:: fortiWeb
   
@@ -181,14 +194,12 @@ Return Values
       Number of CPUs. The value of this attribute is one of "1", "2", "4", "8" or "16".
     
       :type: str
-      :returned: always
     
     .. option:: service
     
       Service Package. Valid values are "FWBSTD" (Standard) or "FWBADV" (Advanced).
     
       :type: str
-      :returned: always
   
   .. option:: fortiGateLCS
   
@@ -201,35 +212,30 @@ Return Values
       The number of CPUs. A number between 1 and 96 (inclusive).
     
       :type: int
-      :returned: always
     
     .. option:: fortiGuardServices
     
       The fortiguard services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["IPS", "AVDB", "FGSA", "DLDB", "FAIS", "FURLDNS"].
     
       :type: list
-      :returned: always
     
     .. option:: supportService
     
       Valid values are "FC247" (FortiCare 24x7) or "ASET" (FortiCare Elite).
     
       :type: str
-      :returned: always
     
     .. option:: vdom
     
       Number of VDOMs. A number between 1 and 500 (inclusive).
     
       :type: int
-      :returned: always
     
     .. option:: cloudServices
     
       The cloud services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["FAMS", "SWNM", "AFAC", "FAZC"].
     
       :type: list
-      :returned: always
   
   .. option:: fortiClientEMSOP
   
@@ -242,28 +248,24 @@ Return Values
       ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
     
       :type: int
-      :returned: always
     
     .. option:: EPP
     
       EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
     
       :type: int
-      :returned: always
     
     .. option:: chromebook
     
       Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
     
       :type: int
-      :returned: always
     
     .. option:: service
     
       Support Services. Possible value is "FCTFC247" (FortiCare Premium)
     
       :type: str
-      :returned: always
     
     .. option:: addons
     
@@ -282,21 +284,18 @@ Return Values
       Daily Storage (GB). A number between 5 and 8300 (inclusive).
     
       :type: int
-      :returned: always
     
     .. option:: adom
     
       Number of ADOMs. A number between 0 and 1200 (inclusive).
     
       :type: int
-      :returned: always
     
     .. option:: service
     
       Support Service. Currently, the only available option is "FAZFC247" (FortiCare Premium). The default value is "FAZFC247".
     
       :type: str
-      :returned: always
   
   .. option:: fortiPortal
   
@@ -309,7 +308,6 @@ Return Values
       Number of managed devices. A number between 0 and 100000 (inclusive).
     
       :type: str
-      :returned: always
   
   .. option:: fortiADC
   
@@ -322,14 +320,12 @@ Return Values
       Number of CPUs. The value of this attribute is one of "1", "2", "4", "8", "16" or "32".
     
       :type: str
-      :returned: always
     
     .. option:: service
     
       Support Service. "FDVSTD" (Standard), "FDVADV" (Advanced) or "FDVFC247" (FortiCare Premium).
     
       :type: str
-      :returned: always
   
   .. option:: fortiGateHardware
   
@@ -339,24 +335,21 @@ Return Values
     
     .. option:: model
     
-      The device model. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F), FWF40F (FortiWifi-40F), FWF60F (FortiWifi-60F), FGR60F (FortiGateRugged-60F), FR70FB (FortiGateRugged-70F), FGT81F (FortiGate-81F), FG101E (FortiGate-101E), FG4H1F (FortiGate-401F), FG1K0F (FortiGate-1000F), FG180F (FortiGate-1800F), F2K60F (FortiGate-2600F), FG3K0F (FortiGate-3000F), FG3K1F (FortiGate-3001F), FG3K2F (FortiGate-3200F).
+      The device model. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F), FWF40F (FortiWifi-40F), FWF60F (FortiWifi-60F), FGR60F (FortiGateRugged-60F), FR70FB (FortiGateRugged-70F), FGT81F (FortiGate-81F), FG101E (FortiGate-101E), FG4H1F (FortiGate-401F), FG1K0F (FortiGate-1000F), FG180F (FortiGate-1800F), F2K60F (FortiGate-2600F), FG3K0F (FortiGate-3000F), FG3K1F (FortiGate-3001F), FG3K2F (FortiGate-3200F)...
     
       :type: str
-      :returned: always
     
     .. option:: service
     
       Support Service. Possible values are FGHWFC247 (FortiCare Premium), FGHWFCEL (FortiCare Elite), FDVFC247 (ATP), FGHWUTP (UTP) or FGHWENT (Enterprise).
     
       :type: str
-      :returned: always
     
     .. option:: addons
     
-      Addons. A list, possible values are FGHWFCELU (FortiCare Elite Upgrade), FGHWFAMS (FortiGate Cloud Management), FGHWFAIS (AI-Based In-line Sandbox), FGHWSWNM (SD-WAN Underlay), FGHWDLDB (FortiGuard DLP), FGHWFAZC (FortiAnalyzer Cloud), FGHWSOCA (SOCaaS), FGHWMGAS (Managed FortiGate), FGHWSPAL (SD-WAN Connector for FortiSASE), FGHWFCSS (FortiConverter Service).
+      Addons. Possible values are NONE, FGHWFCELU (FortiCare Elite Upgrade), FGHWFAMS (FortiGate Cloud Management), FGHWFAIS (AI-Based In-line Sandbox), FGHWSWNM (SD-WAN Underlay), FGHWDLDB (FortiGuard DLP), FGHWFAZC (FortiAnalyzer Cloud), FGHWSOCA (SOCaaS), FGHWMGAS (Managed FortiGate), FGHWSPAL (SD-WAN Connector for FortiSASE), FGHWFCSS (FortiConverter Service).
     
       :type: list
-      :returned: always
   
   .. option:: fortiCloudPrivate
   
@@ -369,14 +362,12 @@ Return Values
       Average Throughput (Mbps). Possible values are 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
     
       :type: int
-      :returned: always
     
     .. option:: applications
     
       Number of web applications. Number between 0 and 2000 (inclusive).
     
       :type: int
-      :returned: always
   
   .. option:: fortiCloudPublic
   
@@ -386,22 +377,62 @@ Return Values
     
     .. option:: throughput
     
-      Average Throughput (Mbps). Possible values are 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
+      Average Throughput (Mbps). Possible values are 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
     
       :type: int
-      :returned: always
     
     .. option:: applications
     
       Number of web applications. Number between 0 and 2000 (inclusive).
     
       :type: int
-      :returned: always
+  
+  .. option:: fortiClientEMSCloud
+  
+    FortiClient EMS Cloud.
+  
+    :type: dict
+    
+    .. option:: ZTNA
+    
+      ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: ZTNA_FGF
+    
+      ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: EPP_ZTNA
+    
+      EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: EPP_ZTNA_FGF
+    
+      EPP/ATP + ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: chromebook
+    
+      Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: addons
+    
+      Addons. A list. Possible value is "BPS" ( FortiCare Best Practice).
+    
+      :type: list
 
 Authors
 -------
 
-- Xinwei Du (@DrMofu)
+- Xinwei Du (@dux-fortinet)
 
 .. hint::
     If you notice any issues in this documentation, you can create a pull request to improve it.

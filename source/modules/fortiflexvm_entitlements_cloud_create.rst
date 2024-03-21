@@ -27,14 +27,12 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: configId
 
@@ -48,7 +46,6 @@ Parameters
   VM(s) end date. It can not be before today's date or after the program's end date. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss". If not specify, it will use the program's end date automatically.
 
   :type: str
-  :required: False
 
 
 Examples
@@ -58,10 +55,9 @@ Examples
 
   - name: Create cloud entitlement.
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
-    vars_files:
-      - vars/vars.yml
+    vars:
+      username: "<your_own_value>"
+      password: "<your_own_value>"
     tasks:
       - name: Create Cloud Entitlement.
         fortinet.fortiflexvm.fortiflexvm_entitlements_cloud_create:
@@ -72,7 +68,7 @@ Examples
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.entitlements
   
 

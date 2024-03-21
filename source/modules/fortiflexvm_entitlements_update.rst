@@ -27,14 +27,12 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: serialNumber
 
@@ -48,28 +46,24 @@ Parameters
   The ID of the configuration.
 
   :type: int
-  :required: False
 
 .. option:: description
 
   The description of the entitlement.
 
   :type: str
-  :required: False
 
 .. option:: endDate
 
   The end date of the entitlement's validity. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss".
 
   :type: str
-  :required: False
 
 .. option:: status
 
   The status of the entitlement.
 
   :type: str
-  :required: False
   :choices: ['ACTIVE', 'STOPPED']
 
 
@@ -80,8 +74,6 @@ Examples
 
   - name: Update entitlement
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
@@ -90,16 +82,16 @@ Examples
         fortinet.fortiflexvm.fortiflexvm_entitlements_update:
           username: "{{ username }}"
           password: "{{ password }}"
-          serialNumber: "FGVMMLTM23001324"
+          serialNumber: "FGVMXXXX00000000"
           # Please specify configId if you want to update configId, description or endDate
           configId: 3196
           description: "Modify through Ansible" # Optional.
-          endDate: "2023-12-12T00:00:00"  # Optional. If not set, it will use the program end date automatically.
-          status: "ACTIVE" # ACTIVE or STOPPED
+          endDate: "2024-12-12T00:00:00"        # Optional. If not set, it will use the program end date automatically.
+          status: "ACTIVE"                      # Optional. ACTIVE or STOPPED
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.entitlements
   
 

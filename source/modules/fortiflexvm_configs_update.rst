@@ -27,14 +27,12 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: id
 
@@ -48,14 +46,12 @@ Parameters
   The name of your Flex VM Configuration.
 
   :type: str
-  :required: False
 
 .. option:: status
 
   Active of disable the configuration.
 
   :type: str
-  :required: False
   :choices: ['ACTIVE', 'DISABLED']
 
 .. option:: bypass_validation
@@ -63,7 +59,6 @@ Parameters
   Only set to True when module schema diffs with FortiFlex API structure, module continues to execute without validating parameters.
 
   :type: bool
-  :required: False
   :default: False
 
 .. option:: check_parameters
@@ -71,7 +66,6 @@ Parameters
   Check whether the parameters are set correctly before sending the data. If set to true, FortiFlexVM Ansible will check the parameter correctness based on the rules. It is only for debugging purposes, not recommended to set it as true since the rules in FortiFlexVM Ansible may be outdated.
 
   :type: bool
-  :required: False
   :default: False
 
 .. option:: fortiGateBundle
@@ -79,7 +73,6 @@ Parameters
   FortiGate Virtual Machine - Service Bundle.
 
   :type: dict
-  :required: False
 
   .. option:: cpu
 
@@ -100,7 +93,6 @@ Parameters
     Number of VDOMs. A number between 0 and 500 (inclusive). The default number is 0.
 
   :type: int
-  :required: False
   :default: 0
 
   .. option:: fortiGuardServices
@@ -108,7 +100,6 @@ Parameters
     Fortiguard Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTAVDB", "FGTFAIS", "FGTISSS", "FGTDLDB", "FGTFGSA", "FGTFCSS"].
 
   :type: list
-  :required: False
   :default: []
 
   .. option:: cloudServices
@@ -116,7 +107,6 @@ Parameters
     Cloud Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTFAMS", "FGTSWNM", "FGTSOCA", "FGTFAZC", "FGTSWOS", "FGTFSPA"].
 
   :type: list
-  :required: False
   :default: []
 
   .. option:: supportService
@@ -124,7 +114,6 @@ Parameters
     Suport service. "FGTFCELU" or "NONE". Default is "NONE".
 
   :type: str
-  :required: False
   :default: NONE
 
 .. option:: fortiManager
@@ -132,7 +121,6 @@ Parameters
   FortiManager Virtual Machine.
 
   :type: dict
-  :required: False
 
   .. option:: device
 
@@ -153,7 +141,6 @@ Parameters
   FortiWeb Virtual Machine - Service Bundle.
 
   :type: dict
-  :required: False
 
   .. option:: cpu
 
@@ -174,7 +161,6 @@ Parameters
   FortiGate Virtual Machine - A La Carte Services.
 
   :type: dict
-  :required: False
 
   .. option:: cpu
 
@@ -188,7 +174,6 @@ Parameters
     The fortiguard services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["IPS", "AVDB", "FGSA", "DLDB", "FAIS", "FURLDNS"].
 
   :type: list
-  :required: False
   :default: []
 
   .. option:: supportService
@@ -210,7 +195,6 @@ Parameters
     The cloud services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["FAMS", "SWNM", "AFAC", "FAZC"].
 
   :type: list
-  :required: False
   :default: []
 
 .. option:: fortiClientEMSOP
@@ -218,7 +202,6 @@ Parameters
   FortiClient EMS On-Prem.
 
   :type: dict
-  :required: False
 
   .. option:: ZTNA
 
@@ -253,7 +236,6 @@ Parameters
     A d d o n s .   A   l i s t .   P o s s i b l e   v a l u e   i s   " B P S "   (   F o r t i C a r e   B e s t   P r a c t i c e ) .
 
   :type: list
-  :required: False
   :default: []
 
 .. option:: fortiAnalyzer
@@ -261,7 +243,6 @@ Parameters
   FortiAnalyzer Virtual Machine.
 
   :type: dict
-  :required: False
 
   .. option:: storage
 
@@ -289,7 +270,6 @@ Parameters
   FortiPortal Virtual Machine.
 
   :type: dict
-  :required: False
 
   .. option:: device
 
@@ -303,7 +283,6 @@ Parameters
   FortiADC Virtual Machine.
 
   :type: dict
-  :required: False
 
   .. option:: cpu
 
@@ -324,7 +303,6 @@ Parameters
   FortiGate Hardware.
 
   :type: dict
-  :required: False
 
   .. option:: model
 
@@ -345,7 +323,6 @@ Parameters
     Addons. A list, can be empty, possible values are FGHWFCELU (FortiCare Elite Upgrade), FGHWFAMS (FortiGate Cloud Management), FGHWFAIS (AI-Based In-line Sandbox), FGHWSWNM (SD-WAN Underlay), FGHWDLDB (FortiGuard DLP), FGHWFAZC (FortiAnalyzer Cloud), FGHWSOCA (SOCaaS), FGHWMGAS (Managed FortiGate), FGHWSPAL (SD-WAN Connector for FortiSASE), FGHWFCSS (FortiConverter Service).
 
   :type: list
-  :required: False
   :default: []
 
 .. option:: fortiCloudPrivate
@@ -353,7 +330,6 @@ Parameters
   FortiWeb Cloud, Private.
 
   :type: dict
-  :required: False
 
   .. option:: throughput
 
@@ -374,7 +350,6 @@ Parameters
   FortiWeb Cloud, Public.
 
   :type: dict
-  :required: False
 
   .. option:: throughput
 
@@ -395,7 +370,6 @@ Parameters
   FortiClient EMS Cloud.
 
   :type: dict
-  :required: False
 
   .. option:: ZTNA
 
@@ -437,7 +411,60 @@ Parameters
     A d d o n s .   A   l i s t .   P o s s i b l e   v a l u e   i s   " B P S "   (   F o r t i C a r e   B e s t   P r a c t i c e ) .
 
   :type: list
-  :required: False
+  :default: []
+
+.. option:: fortiSASE
+
+  fortiSASE Cloud Configuration.
+
+  :type: dict
+
+  .. option:: users
+
+    Number of users. Number between 50 and 50,000 (inclusive). Value should be divisible by 25.
+
+  :type: int
+  :required: True
+
+  .. option:: service
+
+    S e r v i c e   p a c k a g e .   " F S A S E S T D "   ( S t a n d a r d )   o r   " F S A S E A D V "   ( A d v a n c e d ) .
+
+  :type: str
+  :required: True
+
+  .. option:: bandwidth
+
+    N u m b e r   b e t w e e n   2 5   a n d   1 0 , 0 0 0   ( i n c l u s i v e ) .   V a l u e   s h o u l d   b e   d i v i s i b l e   b y   2 5 .
+
+  :type: int
+  :required: True
+
+  .. option:: dedicatedIPs
+
+    N u m b e r   b e t w e e n   4   a n d   6 5 , 5 3 4   ( i n c l u s i v e ) .
+
+  :type: int
+  :required: True
+
+.. option:: fortiEDR
+
+  fortiEDR Cloud Configuration.
+
+  :type: dict
+
+  .. option:: service
+
+    S e r v i c e   p a c k a g e .   " F E D R P D R "   ( D i s c o v e r / P r o t e c t / R e s p o n d ) .
+
+  :type: str
+  :required: True
+
+  .. option:: addons
+
+    A d d o n s .   A   l i s t .   P o s s i b l e   v a l u e   i s   " F E D R X D R "   ( X D R ) .
+
+  :type: list
   :default: []
 
 
@@ -448,8 +475,6 @@ Examples
 
   - name: Update a FortiFlex configuration
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
@@ -547,10 +572,20 @@ Examples
           #   chromebook: 200
           #   addons: []                        # [] or "BPS"
   
+          # fortiSASE:
+          #   users: 50                         # 50 ~ 50000. Value should be divisible by 25.
+          #   service: "FSASESTD"               # "FSASESTD" (Standard) or "FSASEADV" (Advanced).
+          #   bandwidth: 100                    # 25 ~ 10000. Value should be divisible by 25.
+          #   dedicatedIPs: 10                  # 4 ~ 65534
+  
+          # fortiEDR:
+          #   service: "FEDRPDR"                # "FEDRPDR" (Discover/Protect/Respond)
+          #   addons: ["FEDRXDR"]               # Empty list or "FEDRXDR"
+  
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.configs
   
 
@@ -903,6 +938,60 @@ Return Values
     .. option:: addons
     
       Addons. A list. Possible value is "BPS" ( FortiCare Best Practice).
+    
+      :type: list
+  
+  .. option:: fortiSASE
+  
+    fortiSASE Cloud Configuration.
+  
+    :type: dict
+    
+    .. option:: users
+    
+      Number of users. Number between 50 and 50,000 (inclusive). Number between 50 and 50,000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: service
+    
+      Service package. "FSASESTD" (Standard) or "FSASEADV" (Advanced).
+    
+      :type: str
+    
+    .. option:: bandwidth
+    
+      Number between 25 and 10,000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: dedicatedIPs
+    
+      Number between 4 and 65,534 (inclusive).
+    
+      :type: int
+  
+  .. option:: fortiEDR
+  
+    fortiEDR Cloud Configuration.
+  
+    :type: dict
+    
+    .. option:: service
+    
+      Service package. "FEDRPDR" (Discover/Protect/Respond).
+    
+      :type: str
+    
+    .. option:: endpoints
+    
+      Number of Endpoints. Read only.
+    
+      :type: int
+    
+    .. option:: addons
+    
+      Addons. A list. Possible value is "FEDRXDR" (XDR).
     
       :type: list
 

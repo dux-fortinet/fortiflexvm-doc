@@ -27,14 +27,12 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: regenerate
 
@@ -58,10 +56,9 @@ Examples
 
   - name: Regenerate token
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
-    vars_files:
-      - vars/vars.yml
+    vars:
+      username: "<your_own_value>"
+      password: "<your_own_value>"
     tasks:
       - name: Regenerate token
         fortinet.fortiflexvm.fortiflexvm_entitlements_vm_regenerate_token:
@@ -72,7 +69,7 @@ Examples
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.entitlements
   
 

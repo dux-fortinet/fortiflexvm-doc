@@ -27,21 +27,18 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: accountId
 
   Account ID.
 
   :type: int
-  :required: False
 
 .. option:: programSerialNumber
 
@@ -58,8 +55,6 @@ Examples
 
   - name: Get list of FortiFlex Configurations for a Program
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
@@ -73,7 +68,7 @@ Examples
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.configs
   
 
@@ -426,6 +421,60 @@ Return Values
     .. option:: addons
     
       Addons. A list. Possible value is "BPS" ( FortiCare Best Practice).
+    
+      :type: list
+  
+  .. option:: fortiSASE
+  
+    fortiSASE Cloud Configuration.
+  
+    :type: dict
+    
+    .. option:: users
+    
+      Number of users. Number between 50 and 50,000 (inclusive). Number between 50 and 50,000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: service
+    
+      Service package. "FSASESTD" (Standard) or "FSASEADV" (Advanced).
+    
+      :type: str
+    
+    .. option:: bandwidth
+    
+      Number between 25 and 10,000 (inclusive). Value should be divisible by 25.
+    
+      :type: int
+    
+    .. option:: dedicatedIPs
+    
+      Number between 4 and 65,534 (inclusive).
+    
+      :type: int
+  
+  .. option:: fortiEDR
+  
+    fortiEDR Cloud Configuration.
+  
+    :type: dict
+    
+    .. option:: service
+    
+      Service package. "FEDRPDR" (Discover/Protect/Respond).
+    
+      :type: str
+    
+    .. option:: endpoints
+    
+      Number of Endpoints. Read only.
+    
+      :type: int
+    
+    .. option:: addons
+    
+      Addons. A list. Possible value is "FEDRXDR" (XDR).
     
       :type: list
 

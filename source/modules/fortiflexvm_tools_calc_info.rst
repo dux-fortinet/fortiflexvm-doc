@@ -1,7 +1,7 @@
-fortiflexvm_configs_create - Create a new FortiFlex Configuration.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_tools_calc_info - Estimate points that will be consumed for configuration with certain parameters.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. versionadded:: 1.0.0
+.. versionadded:: 2.2.0
 
 .. contents::
    :local:
@@ -9,7 +9,7 @@ fortiflexvm_configs_create - Create a new FortiFlex Configuration.
 
 Synopsis
 --------
-This module creates a new FortiFlex Configuration under a program.
+Returns number of points that will be consumed for configuration with certain parameters. count should be 1 if product type is Cloud form factor. Cloud product including "fortiCloudPrivate", "fortiCloudPublic", "fortiClientEMSCloud", "fortiSASE", "fortiEDR".
 
 Requirements
 ------------
@@ -34,11 +34,12 @@ Parameters
 
   :type: str
 
-.. option:: accountId
+.. option:: bypass_validation
 
-  Account ID.
+  Only set to True when module schema diffs with FortiFlex API structure, module continues to execute without validating parameters.
 
-  :type: int
+  :type: bool
+  :default: False
 
 .. option:: programSerialNumber
 
@@ -47,26 +48,12 @@ Parameters
   :type: str
   :required: True
 
-.. option:: name
+.. option:: count
 
-  The name of your Flex VM Configuration.
+  Number of entitlements you want to create. Should be 1 if product type is Cloud form factor.
 
-  :type: str
-  :required: True
-
-.. option:: bypass_validation
-
-  Only set to True when module schema diffs with FortiFlex API structure, module continues to execute without validating parameters.
-
-  :type: bool
-  :default: False
-
-.. option:: check_parameters
-
-  Check whether the parameters are set correctly before sending the data. If set to true, FortiFlexVM Ansible will check the parameter correctness based on the rules. It is only for debugging purposes, not recommended to set it as true since the rules in FortiFlexVM Ansible may be outdated.
-
-  :type: bool
-  :default: False
+  :type: int
+  :default: 1
 
 .. option:: fortiGateBundle
 
@@ -473,28 +460,19 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Create entitlement configuration
+  - name: Estimate cost
     hosts: localhost
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
     tasks:
-      - name: Create a configuration
-        fortinet.fortiflexvm.fortiflexvm_configs_create:
+      - name: Estimate cost
+        fortinet.fortiflexvm.fortiflexvm_tools_calc_info:
           username: "{{ username }}"
           password: "{{ password }}"
-          programSerialNumber: "ELAVMS000000XXXX"
-          name: "ansible"
-  
-          # If FortiFlex API supports new params while FortiFlex Ansible does not support them yet,
-          # you can set bypass_validation: true. The FortiFlex Ansible will allow you to use new param
-          # without perforam any sanity check. The default value is false.
-          bypass_validation: false
-  
-          # Check whether the parameters are set correctly before sending the data. The default value is false.
-          # If set to true, FortiFlexVM Ansible will check the parameter correctness based on the rules.
-          # It is only for debugging purposes, not recommended to set it as true since the rules in FortiFlexVM Ansible may be outdated.
-          check_parameters: false
+          programSerialNumber: "ELAVMS0000000000"
+          # "count" should be 1 if product is cloud (fortiCloudPublic, fortiClientEMSCloud, fortiSASE, fortiEDR).
+          count: 1
   
           # Please only use one of the following.
           fortiGateBundle:
@@ -549,12 +527,6 @@ Examples
           #   addons: []                        # "FGHWFCELU", "FGHWFAMS", "FGHWFAIS", "FGHWSWNM", "FGHWDLDB",
           #                                     # "FGHWFAZC", "FGHWSOCA", "FGHWMGAS", "FGHWSPAL", "FGHWFCSS"
   
-          # fortiCloudPrivate:
-          #   throughput: 100                   # 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800,
-          #                                     # 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500,
-          #                                     # 7000, 7500, 8000, 8500, 9000, 9500, 10000.
-          #   applications: 10                  # 0 ~ 2000
-  
           # fortiCloudPublic:
           #   throughput: 100                   # 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800,
           #                                     # 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500,
@@ -578,12 +550,11 @@ Examples
           # fortiEDR:
           #   service: "FEDRPDR"                # "FEDRPDR" (Discover/Protect/Respond)
           #   addons: ["FEDRXDR"]               # Empty list or "FEDRXDR"
-  
         register: result
   
       - name: Display response
         ansible.builtin.debug:
-          var: result.configs
+          var: result
   
 
 
@@ -592,405 +563,45 @@ Return Values
 
 .. option:: configs
 
-  The configuration you create.
+  Estimate consumed points.
 
   :type: dict
   :returned: always
   
-  .. option:: accountId
+  .. option:: current
   
     The ID of the account associated with the program.
   
     :type: int
     :returned: always
   
-  .. option:: id
+  .. option:: latest
   
-    The ID of the configuration.
+    Unknown.
   
     :type: int
     :returned: always
   
-  .. option:: name
+  .. option:: latestEffectiveDate
   
-    The name of the configuration.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: programSerialNumber
-  
-    The program serial number the configuration belongs to.
+    Latest effective date.
   
     :type: str
     :returned: always
-  
-  .. option:: status
-  
-    The status of the configuration.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: fortiGateBundle
-  
-    FortiGate Virtual Machine - Service Bundle.
-  
-    :type: dict
-    
-    .. option:: cpu
-    
-      The number of CPUs. The value of this attribute is one of "1", "2", "4", "8", "16",  "32" or "2147483647" (unlimited).
-    
-      :type: int
-    
-    .. option:: service
-    
-      The value of this attribute is one of "FC" (FortiCare), "UTP", "ENT" (Enterprise) or "ATP".
-    
-      :type: str
-    
-    .. option:: vdom
-    
-      Number of VDOMs. A number between 0 and 500 (inclusive). The default number is 0.
-    
-      :type: int
-    
-    .. option:: fortiGuardServices
-    
-      Fortiguard Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTAVDB", "FGTFAIS", "FGTISSS", "FGTDLDB", "FGTFGSA", "FGTFCSS"].
-    
-      :type: list
-    
-    .. option:: cloudServices
-    
-      Cloud Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTFAMS", "FGTSWNM", "FGTSOCA", "FGTFAZC", "FGTSWOS", "FGTFSPA"].
-    
-      :type: list
-    
-    .. option:: supportService
-    
-      Suport service. "FGTFCELU" or "NONE". Default is "NONE".
-    
-      :type: str
-  
-  .. option:: fortiManager
-  
-    FortiManager Virtual Machine.
-  
-    :type: dict
-    
-    .. option:: device
-    
-      Number of managed devices. A number between 1 and 100000 (inclusive).
-    
-      :type: int
-    
-    .. option:: adom
-    
-      Number of ADOMs. A number between 1 and 100000 (inclusive).
-    
-      :type: int
-  
-  .. option:: fortiWeb
-  
-    FortiWeb Virtual Machine - Service Bundle.
-  
-    :type: dict
-    
-    .. option:: cpu
-    
-      Number of CPUs. The value of this attribute is one of "1", "2", "4", "8" or "16".
-    
-      :type: str
-    
-    .. option:: service
-    
-      Service Package. Valid values are "FWBSTD" (Standard) or "FWBADV" (Advanced).
-    
-      :type: str
-  
-  .. option:: fortiGateLCS
-  
-    FortiGate Virtual Machine - A La Carte Services.
-  
-    :type: dict
-    
-    .. option:: cpu
-    
-      The number of CPUs. A number between 1 and 96 (inclusive).
-    
-      :type: int
-    
-    .. option:: fortiGuardServices
-    
-      The fortiguard services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["IPS", "AVDB", "FGSA", "DLDB", "FAIS", "FURLDNS"].
-    
-      :type: list
-    
-    .. option:: supportService
-    
-      Valid values are "FC247" (FortiCare 24x7) or "ASET" (FortiCare Elite).
-    
-      :type: str
-    
-    .. option:: vdom
-    
-      Number of VDOMs. A number between 1 and 500 (inclusive).
-    
-      :type: int
-    
-    .. option:: cloudServices
-    
-      The cloud services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["FAMS", "SWNM", "AFAC", "FAZC"].
-    
-      :type: list
-  
-  .. option:: fortiClientEMSOP
-  
-    FortiClient EMS On-Prem.
-  
-    :type: dict
-    
-    .. option:: ZTNA
-    
-      ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: EPP
-    
-      EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: chromebook
-    
-      Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: service
-    
-      Support Services. Possible value is "FCTFC247" (FortiCare Premium)
-    
-      :type: str
-    
-    .. option:: addons
-    
-      Addons. A list. Possible value is "BPS" ( FortiCare Best Practice).
-    
-      :type: list
-  
-  .. option:: fortiAnalyzer
-  
-    FortiAnalyzer Virtual Machine.
-  
-    :type: dict
-    
-    .. option:: storage
-    
-      Daily Storage (GB). A number between 5 and 8300 (inclusive).
-    
-      :type: int
-    
-    .. option:: adom
-    
-      Number of ADOMs. A number between 0 and 1200 (inclusive).
-    
-      :type: int
-    
-    .. option:: service
-    
-      Support Service. Currently, the only available option is "FAZFC247" (FortiCare Premium). The default value is "FAZFC247".
-    
-      :type: str
-  
-  .. option:: fortiPortal
-  
-    FortiPortal Virtual Machine.
-  
-    :type: dict
-    
-    .. option:: device
-    
-      Number of managed devices. A number between 0 and 100000 (inclusive).
-    
-      :type: str
-  
-  .. option:: fortiADC
-  
-    FortiADC Virtual Machine.
-  
-    :type: dict
-    
-    .. option:: cpu
-    
-      Number of CPUs. The value of this attribute is one of "1", "2", "4", "8", "16" or "32".
-    
-      :type: str
-    
-    .. option:: service
-    
-      Support Service. "FDVSTD" (Standard), "FDVADV" (Advanced) or "FDVFC247" (FortiCare Premium).
-    
-      :type: str
-  
-  .. option:: fortiGateHardware
-  
-    FortiGate Hardware.
-  
-    :type: dict
-    
-    .. option:: model
-    
-      The device model. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F), FWF40F (FortiWifi-40F), FWF60F (FortiWifi-60F), FGR60F (FortiGateRugged-60F), FR70FB (FortiGateRugged-70F), FGT81F (FortiGate-81F), FG101E (FortiGate-101E), FG4H1F (FortiGate-401F), FG1K0F (FortiGate-1000F), FG180F (FortiGate-1800F), F2K60F (FortiGate-2600F), FG3K0F (FortiGate-3000F), FG3K1F (FortiGate-3001F), FG3K2F (FortiGate-3200F)...
-    
-      :type: str
-    
-    .. option:: service
-    
-      Support Service. Possible values are FGHWFC247 (FortiCare Premium), FGHWFCEL (FortiCare Elite), FDVFC247 (ATP), FGHWUTP (UTP) or FGHWENT (Enterprise).
-    
-      :type: str
-    
-    .. option:: addons
-    
-      Addons. Possible values are NONE, FGHWFCELU (FortiCare Elite Upgrade), FGHWFAMS (FortiGate Cloud Management), FGHWFAIS (AI-Based In-line Sandbox), FGHWSWNM (SD-WAN Underlay), FGHWDLDB (FortiGuard DLP), FGHWFAZC (FortiAnalyzer Cloud), FGHWSOCA (SOCaaS), FGHWMGAS (Managed FortiGate), FGHWSPAL (SD-WAN Connector for FortiSASE), FGHWFCSS (FortiConverter Service).
-    
-      :type: list
-  
-  .. option:: fortiCloudPrivate
-  
-    FortiWeb Cloud, Private.
-  
-    :type: dict
-    
-    .. option:: throughput
-    
-      Average Throughput (Mbps). Possible values are 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
-    
-      :type: int
-    
-    .. option:: applications
-    
-      Number of web applications. Number between 0 and 2000 (inclusive).
-    
-      :type: int
-  
-  .. option:: fortiCloudPublic
-  
-    FortiWeb Cloud, Public.
-  
-    :type: dict
-    
-    .. option:: throughput
-    
-      Average Throughput (Mbps). Possible values are 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
-    
-      :type: int
-    
-    .. option:: applications
-    
-      Number of web applications. Number between 0 and 2000 (inclusive).
-    
-      :type: int
-  
-  .. option:: fortiClientEMSCloud
-  
-    FortiClient EMS Cloud.
-  
-    :type: dict
-    
-    .. option:: ZTNA
-    
-      ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: ZTNA_FGF
-    
-      ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: EPP_ZTNA
-    
-      EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: EPP_ZTNA_FGF
-    
-      EPP/ATP + ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: chromebook
-    
-      Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: addons
-    
-      Addons. A list. Possible value is "BPS" ( FortiCare Best Practice).
-    
-      :type: list
-  
-  .. option:: fortiSASE
-  
-    fortiSASE Cloud Configuration.
-  
-    :type: dict
-    
-    .. option:: users
-    
-      Number of users. Number between 50 and 50,000 (inclusive). Number between 50 and 50,000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: service
-    
-      Service package. "FSASESTD" (Standard) or "FSASEADV" (Advanced).
-    
-      :type: str
-    
-    .. option:: bandwidth
-    
-      Number between 25 and 10,000 (inclusive). Value should be divisible by 25.
-    
-      :type: int
-    
-    .. option:: dedicatedIPs
-    
-      Number between 4 and 65,534 (inclusive).
-    
-      :type: int
-  
-  .. option:: fortiEDR
-  
-    fortiEDR Cloud Configuration.
-  
-    :type: dict
-    
-    .. option:: service
-    
-      Service package. "FEDRPDR" (Discover/Protect/Respond).
-    
-      :type: str
-    
-    .. option:: endpoints
-    
-      Number of Endpoints. Read only.
-    
-      :type: int
-    
-    .. option:: addons
-    
-      Addons. A list. Possible value is "FEDRXDR" (XDR).
-    
-      :type: list
+
+.. option:: message
+
+  Estimate consumed points.
+
+  :type: str
+  :returned: always
+
+.. option:: status
+
+  Request status.
+
+  :type: int
+  :returned: always
 
 Authors
 -------

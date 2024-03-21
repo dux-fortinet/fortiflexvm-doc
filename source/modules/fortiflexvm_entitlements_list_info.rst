@@ -1,5 +1,5 @@
-fortiflexvm_entitlements_list_info - Get list of existing entitlements for a FlexVM Configuration.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+fortiflexvm_entitlements_list_info - Get entitlements information.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. versionadded:: 2.0.0
 
@@ -9,7 +9,7 @@ fortiflexvm_entitlements_list_info - Get list of existing entitlements for a Fle
 
 Synopsis
 --------
-This module retrieves a list of entitlements for a configuration. Either configId or (accountId and programSerialNumber) should be provided.
+This module retrieves information of target entitlements. Either configId or (accountId and programSerialNumber) should be provided.
 
 Requirements
 ------------
@@ -27,35 +27,54 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: accountId
 
-  Account ID.
+  Filter option. Account ID.
 
   :type: int
-  :required: False
 
 .. option:: configId
 
   The ID of the configuration for which to retrieve the list of VMs.
 
   :type: int
-  :required: False
+
+.. option:: description
+
+  Filter option. Description.
+
+  :type: str
+
+.. option:: serialNumber
+
+  Filter option. Serial number.
+
+  :type: str
+
+.. option:: status
+
+  Filter option. "ACTIVE", "STOPPED", "PENDDING" or "EXPIRED".
+
+  :type: str
+
+.. option:: tokenStatus
+
+  Filter option. Token status. "NOTUSED" or "USED".
+
+  :type: str
 
 .. option:: programSerialNumber
 
-  The serial number of your FortiFlex Program.
+  Filter option. The serial number of your FortiFlex Program.
 
   :type: str
-  :required: False
 
 
 Examples
@@ -63,10 +82,8 @@ Examples
 
 .. code-block:: yaml
 
-  - name: Get list of entitlements for a specific config ID
+  - name: Get information of target entitlements.
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
@@ -79,10 +96,16 @@ Examples
           configId: 22
           # accountId: 12345
           # programSerialNumber: "ELAVMS00XXXXX"
+  
+          # Optional filter options
+          # description: "you can use description to distinguish entitlements"
+          # serialNumber: "XXXXXX0000000000"
+          # status: "PENDING"
+          # tokenStatus: "NOTUSED"
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.entitlements
   
 

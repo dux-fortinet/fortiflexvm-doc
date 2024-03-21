@@ -27,28 +27,24 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: accountId
 
   Account ID.
 
   :type: str
-  :required: False
 
 .. option:: configId
 
   The ID of a Flex VM Configuration. Please declare at least one of the two arguments folderPath and configId.
 
   :type: int
-  :required: False
   :default: 0
 
 .. option:: folderPath
@@ -56,8 +52,13 @@ Parameters
   Folder path. Please declare at least one of the two arguments folderPath and configId.
 
   :type: str
-  :required: False
   :default: ""
+
+.. option:: status
+
+  Filter option. A list. Possible values are "ACTIVE", "PENDDING", "STOPPED" and "EXPIRED".
+
+  :type: list
 
 
 Examples
@@ -67,8 +68,6 @@ Examples
 
   - name: Get next available (unused) token
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
@@ -78,14 +77,17 @@ Examples
           username: "{{ username }}"
           password: "{{ password }}"
           # Please declare at least one of the following two arguments: folderPath and configId.
-          # You can comment at most one argument that you don't want to specify.
+          # You can comment at most one argument that you don"t want to specify.
           folderPath: "My Assets"
           configId: 22
-          # accountId: 12345 # optional
+  
+          # Optional parameters
+          # accountId: 12345
+          status: ["ACTIVE", "PENDING"] # "ACTIVE", "PENDING", "STOPPED", "EXPIRED"
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.entitlements
   
 

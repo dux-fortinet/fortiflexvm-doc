@@ -27,21 +27,18 @@ Parameters
   The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
 
   :type: str
-  :required: False
 
 .. option:: password
 
   The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
 
   :type: str
-  :required: False
 
 .. option:: accountId
 
   Account ID.
 
   :type: str
-  :required: False
 
 
 Examples
@@ -51,8 +48,6 @@ Examples
 
   - name: Get list of FortiFlex groups
     hosts: localhost
-    collections:
-      - fortinet.fortiflexvm
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
@@ -65,7 +60,7 @@ Examples
         register: result
   
       - name: Display response
-        debug:
+        ansible.builtin.debug:
           var: result.groups
   
 

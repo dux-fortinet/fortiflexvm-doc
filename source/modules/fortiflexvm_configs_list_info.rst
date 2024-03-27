@@ -240,19 +240,19 @@ Return Values
     
     .. option:: ZTNA
     
-      ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     
     .. option:: EPP
     
-      EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      EPP/ATP + ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     
     .. option:: chromebook
     
-      Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      Chromebook (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     
@@ -390,31 +390,31 @@ Return Values
     
     .. option:: ZTNA
     
-      ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     
     .. option:: ZTNA_FGF
     
-      ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      ZTNA/VPN + FortiGuard Forensics (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     
     .. option:: EPP_ZTNA
     
-      EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      EPP/ATP + ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     
     .. option:: EPP_ZTNA_FGF
     
-      EPP/ATP + ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      EPP/ATP + ZTNA/VPN + FortiGuard Forensics (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     
     .. option:: chromebook
     
-      Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+      Chromebook (number of endpoints). Value should be 0 or between 25 and 25000.
     
       :type: int
     

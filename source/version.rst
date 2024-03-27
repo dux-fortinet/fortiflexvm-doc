@@ -35,7 +35,7 @@ Minor Changes
 - Added 1 new resource, fortiflexvm_tool_calc_info.
 - Added 2 new configurations, fortiSASE and fortiEDR.
 - fortiflexvm_entitlements_list_info supported options "description", "serialnumber", "status", "tokenstatus".
-- fortiflexvm_groups_nexttoken_info supported option "status".
+- fortiflexvm_groups_nexttoken_info supported option "status". According to API, either "configId" or "accountId" is required now.
 
 Bugfixes
 ^^^^^^^^

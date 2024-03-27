@@ -65,43 +65,43 @@ Parameters
 
     The number of CPUs. Number between 1 and 96 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: service
 
     The value of this attribute is one of "FC" (FortiCare), "UTP", "ENT" (Enterprise) or "ATP".
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: vdom
 
     Number of VDOMs. A number between 0 and 500 (inclusive). The default number is 0.
 
-  :type: int
-  :default: 0
+    :type: int
+    :default: 0
 
   .. option:: fortiGuardServices
 
     Fortiguard Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTAVDB", "FGTFAIS", "FGTISSS", "FGTDLDB", "FGTFGSA", "FGTFCSS"].
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
   .. option:: cloudServices
 
     Cloud Services. The default value is an empty list. It should contain zero, one or more elements of ["FGTFAMS", "FGTSWNM", "FGTSOCA", "FGTFAZC", "FGTSWOS", "FGTFSPA"].
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
   .. option:: supportService
 
     Suport service. "FGTFCELU" or "NONE". Default is "NONE".
 
-  :type: str
-  :default: NONE
+    :type: str
+    :default: NONE
 
 .. option:: fortiManager
 
@@ -113,15 +113,15 @@ Parameters
 
     Number of managed devices. A number between 1 and 100000 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: adom
 
     Number of ADOMs. A number between 1 and 100000 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
 .. option:: fortiWeb
 
@@ -133,15 +133,15 @@ Parameters
 
     Number of CPUs. The value of this attribute is one of "1", "2" "4", "8" or "16".
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: service
 
     Service Package. Valid values are "FWBSTD" (Standard) or "FWBADV" (Advanced).
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
 .. option:: fortiGateLCS
 
@@ -153,36 +153,36 @@ Parameters
 
     The number of CPUs. A number between 1 and 96 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: fortiGuardServices
 
     The fortiguard services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["IPS", "AVDB", "FGSA", "DLDB", "FAIS", "FURLDNS"].
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
   .. option:: supportService
 
     Valid values are "FC247" (FortiCare 24x7) or "ASET" (FortiCare Elite).
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: vdom
 
     Number of VDOMs. A number between 1 and 500 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: cloudServices
 
     The cloud services this FortiGate Virtual Machine supports. The default value is an empty list. It should contain zero, one or more elements of ["FAMS", "SWNM", "AFAC", "FAZC"].
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
 .. option:: fortiClientEMSOP
 
@@ -192,38 +192,38 @@ Parameters
 
   .. option:: ZTNA
 
-    ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: EPP
 
-    EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    EPP/ATP + ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: chromebook
 
-    Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    Chromebook (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: service
 
     Support Services. Possible value is "FCTFC247" (FortiCare Premium)
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: addons
 
-    A d d o n s .   A   l i s t .   P o s s i b l e   v a l u e   i s   " B P S "   (   F o r t i C a r e   B e s t   P r a c t i c e ) .
+    Addons. A list. Possible value is "BPS" ( FortiCare Best Practice).
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
 .. option:: fortiAnalyzer
 
@@ -235,22 +235,22 @@ Parameters
 
     Daily Storage (GB). A number between 5 and 8300 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: adom
 
     Number of ADOMs. A number between 0 and 1200 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: service
 
     Support Service. Currently, the only available option is "FAZFC247" (FortiCare Premium). The default value is "FAZFC247".
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
 .. option:: fortiPortal
 
@@ -262,8 +262,8 @@ Parameters
 
     Number of managed devices. A number between 0 and 100000 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
 .. option:: fortiADC
 
@@ -275,15 +275,15 @@ Parameters
 
     Number of CPUs. The value of this attribute is one of "1", "2", "4", "8", "16" or "32".
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: service
 
     Support Service. "FDVSTD" (Standard), "FDVADV" (Advanced) or "FDVFC247" (FortiCare Premium).
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
 .. option:: fortiGateHardware
 
@@ -295,22 +295,22 @@ Parameters
 
     The device model. For all supported models, please check FNDN. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F), FWF40F (FortiWifi-40F), FWF60F (FortiWifi-60F), FGR60F (FortiGateRugged-60F), FR70FB (FortiGateRugged-70F), FGT81F (FortiGate-81F), FG101E (FortiGate-101E), FG4H1F (FortiGate-401F), FG1K0F (FortiGate-1000F), FG180F (FortiGate-1800F), F2K60F (FortiGate-2600F), FG3K0F (FortiGate-3000F), FG3K1F (FortiGate-3001F), FG3K2F (FortiGate-3200F).
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: service
 
     Support Service. Possible values are FGHWFC247 (FortiCare Premium), FGHWFCEL (FortiCare Elite), FDVFC247 (ATP), FGHWUTP (UTP) or FGHWENT (Enterprise).
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: addons
 
     Addons. A list, can be empty, possible values are FGHWFCELU (FortiCare Elite Upgrade), FGHWFAMS (FortiGate Cloud Management), FGHWFAIS (AI-Based In-line Sandbox), FGHWSWNM (SD-WAN Underlay), FGHWDLDB (FortiGuard DLP), FGHWFAZC (FortiAnalyzer Cloud), FGHWSOCA (SOCaaS), FGHWMGAS (Managed FortiGate), FGHWSPAL (SD-WAN Connector for FortiSASE), FGHWFCSS (FortiConverter Service).
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
 .. option:: fortiCloudPrivate
 
@@ -322,15 +322,15 @@ Parameters
 
     Average Throughput (Mbps). Possible values are 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: applications
 
-    N u m b e r   o f   w e b   a p p l i c a t i o n s .   N u m b e r   b e t w e e n   0   a n d   2 0 0 0   ( i n c l u s i v e ) .
+    Number of web applications. Number between 0 and 2000 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
 .. option:: fortiCloudPublic
 
@@ -342,15 +342,15 @@ Parameters
 
     Average Throughput (Mbps). Possible values are 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: applications
 
-    N u m b e r   o f   w e b   a p p l i c a t i o n s .   N u m b e r   b e t w e e n   0   a n d   2 0 0 0   ( i n c l u s i v e ) .
+    Number of web applications. Number between 0 and 2000 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
 .. option:: fortiClientEMSCloud
 
@@ -360,45 +360,45 @@ Parameters
 
   .. option:: ZTNA
 
-    ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: ZTNA_FGF
 
-    ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    ZTNA/VPN + FortiGuard Forensics (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: EPP_ZTNA
 
-    EPP/ATP + ZTNA/VPN (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    EPP/ATP + ZTNA/VPN (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: EPP_ZTNA_FGF
 
-    EPP/ATP + ZTNA/VPN + FortiGuard Forensics (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    EPP/ATP + ZTNA/VPN + FortiGuard Forensics (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: chromebook
 
-    Chromebook (number of endpoints). Number between 0 and 25000 (inclusive). Value should be divisible by 25.
+    Chromebook (number of endpoints). Value should be 0 or between 25 and 25000.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: addons
 
-    A d d o n s .   A   l i s t .   P o s s i b l e   v a l u e   i s   " B P S "   ( F o r t i C a r e   B e s t   P r a c t i c e ) .
+    Addons. A list. Possible value is "BPS" (FortiCare Best Practice).
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
 .. option:: fortiSASE
 
@@ -410,29 +410,29 @@ Parameters
 
     Number of users. Number between 50 and 50,000 (inclusive). Value should be divisible by 25.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: service
 
-    S e r v i c e   p a c k a g e .   " F S A S E S T D "   ( S t a n d a r d )   o r   " F S A S E A D V "   ( A d v a n c e d ) .
+    Service package. "FSASESTD" (Standard) or "FSASEADV" (Advanced).
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
 
   .. option:: bandwidth
 
-    N u m b e r   b e t w e e n   2 5   a n d   1 0 , 0 0 0   ( i n c l u s i v e ) .   V a l u e   s h o u l d   b e   d i v i s i b l e   b y   2 5 .
+    Number between 25 and 10,000 (inclusive). Value should be divisible by 25.
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
   .. option:: dedicatedIPs
 
-    N u m b e r   b e t w e e n   4   a n d   6 5 , 5 3 4   ( i n c l u s i v e ) .
+    Number between 4 and 65,534 (inclusive).
 
-  :type: int
-  :required: True
+    :type: int
+    :required: True
 
 .. option:: fortiEDR
 
@@ -442,17 +442,24 @@ Parameters
 
   .. option:: service
 
-    S e r v i c e   p a c k a g e .   " F E D R P D R "   ( D i s c o v e r / P r o t e c t / R e s p o n d ) .
+    Service package. "FEDRPDR" (Discover/Protect/Respond).
 
-  :type: str
-  :required: True
+    :type: str
+    :required: True
+
+  .. option:: endpoints
+
+    Number of Endpoints. Value should be between 0 and 50000.
+
+    :type: int
+    :required: True
 
   .. option:: addons
 
-    A d d o n s .   A   l i s t .   P o s s i b l e   v a l u e   i s   " F E D R X D R "   ( X D R ) .
+    Addons. A list. Possible value is "FEDRXDR" (XDR).
 
-  :type: list
-  :default: []
+    :type: list
+    :default: []
 
 
 Examples
@@ -499,9 +506,9 @@ Examples
           #   cloudServices: ["FAMS", "SWNM"]   # "FAMS", "SWNM", "AFAC", "FAZC"
   
           # fortiClientEMSOP:
-          #   ZTNA: 1000                        # 0 ~ 25000. Value should be divisible by 25.
-          #   EPP: 1000                         # 0 ~ 25000. Value should be divisible by 25.
-          #   chromebook: 1000                  # 0 ~ 25000. Value should be divisible by 25.
+          #   ZTNA: 1000                        # Value should be 0 or between 25 and 25000.
+          #   EPP: 1000                         # Value should be 0 or between 25 and 25000.
+          #   chromebook: 1000                  # Value should be 0 or between 25 and 25000.
           #   service: "FCTFC247"               # "FCTFC247"
           #   addons: ["BPS"]                   # Empty or "BPS"
   
@@ -534,11 +541,11 @@ Examples
           #   applications: 10                  # 0 ~ 2000
   
           # fortiClientEMSCloud:
-          #   ZTNA: 100
-          #   ZTNA_FGF: 100
-          #   EPP_ZTNA: 100
-          #   EPP_ZTNA_FGF: 100
-          #   chromebook: 100
+          #   ZTNA: 100                         # Value should be 0 or between 25 and 25000.
+          #   ZTNA_FGF: 100                     # Value should be 0 or between 25 and 25000.
+          #   EPP_ZTNA: 100                     # Value should be 0 or between 25 and 25000.
+          #   EPP_ZTNA_FGF: 100                 # Value should be 0 or between 25 and 25000.
+          #   chromebook: 100                   # Value should be 0 or between 25 and 25000.
           #   addons: ["BPS"]                   # [] or "BPS"
   
           # fortiSASE:
@@ -549,6 +556,7 @@ Examples
   
           # fortiEDR:
           #   service: "FEDRPDR"                # "FEDRPDR" (Discover/Protect/Respond)
+          #   endpoints: 10                     # Value should be between 0 and 50000
           #   addons: ["FEDRXDR"]               # Empty list or "FEDRXDR"
         register: result
   

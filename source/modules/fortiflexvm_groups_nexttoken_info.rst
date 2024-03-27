@@ -36,23 +36,21 @@ Parameters
 
 .. option:: accountId
 
-  Account ID.
+  Account ID. Please declare at least one of the two arguments, accountId or configId.
 
   :type: str
 
 .. option:: configId
 
-  The ID of a Flex VM Configuration. Please declare at least one of the two arguments folderPath and configId.
+  The ID of a Flex VM Configuration. Please declare at least one of the two arguments, accountId or configId.
 
   :type: int
-  :default: 0
 
 .. option:: folderPath
 
-  Folder path. Please declare at least one of the two arguments folderPath and configId.
+  Folder path.
 
   :type: str
-  :default: ""
 
 .. option:: status
 
@@ -76,13 +74,13 @@ Examples
         fortinet.fortiflexvm.fortiflexvm_groups_nexttoken_info:
           username: "{{ username }}"
           password: "{{ password }}"
-          # Please declare at least one of the following two arguments: folderPath and configId.
-          # You can comment at most one argument that you don"t want to specify.
-          folderPath: "My Assets"
+          # Please declare at least one of the following two arguments: accountId or configId.
+          # You can comment at most one argument that you don't want to specify.
           configId: 22
+          # accountId: 12345
   
           # Optional parameters
-          # accountId: 12345
+          folderPath: "My Assets"
           status: ["ACTIVE", "PENDING"] # "ACTIVE", "PENDING", "STOPPED", "EXPIRED"
         register: result
   

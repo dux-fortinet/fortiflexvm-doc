@@ -65,14 +65,17 @@ def transfer_option(input_dict):
                 option_list.append("")
                 option_list.append("  .. option:: {}".format(sub_option_name))
                 option_list.append("")
-                option_list.append("    "+" ".join(sub_params["description"]))
+                if isinstance(sub_params["description"], list):
+                    option_list.append("    "+" ".join(sub_params["description"]))
+                else:
+                    option_list.append("    "+sub_params["description"])
                 option_list.append("")
                 for possible_param in ["type","required","choices","default"]:
                     if possible_param in sub_params:
                         value = sub_params[possible_param]
                         if value == "":
                             value = '""'
-                        option_list.append("  :{}: {}".format(possible_param, value))
+                        option_list.append("    :{}: {}".format(possible_param, value))
     return option_list
 
 

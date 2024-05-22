@@ -21,32 +21,15 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">regenerate</span> Whether regenerate a new token.<span class="li-normal">type: bool</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the entitlement to update.<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
-
-.. option:: regenerate
-
-  Whether regenerate a new token.
-
-  :type: bool
-  :required: True
-
-.. option:: serialNumber
-
-  The serial number of the entitlement to update.
-
-  :type: str
-  :required: True
 
 
 Examples
@@ -76,76 +59,23 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: entitlements
+ <ul>
+ <li><span class="li-head">entitlements</span> The entitlement you update. This list only contains one entitlement. It will be empty if you set regenerate as false.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> Account ID.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">configId</span> The config ID of the entitlement.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">description</span> The description of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">endDate</span> The end date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">startDate</span> The start date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">status</span> The status of the VM. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">token</span> The token of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">tokenStatus</span> The token status of the entitlement. Possible values are "NOTUSED" or "USED".<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  The entitlement you update. This list only contains one entitlement. It will be empty if you set regenerate as false.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    Account ID.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: configId
-  
-    The config ID of the entitlement.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: endDate
-  
-    The end date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: startDate
-  
-    The start date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: status
-  
-    The status of the VM. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".
-  
-    :type: str
-    :returned: always
-  
-  .. option:: token
-  
-    The token of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: tokenStatus
-  
-    The token status of the entitlement. Possible values are "NOTUSED" or "USED".
-  
-    :type: str
-    :returned: always
 
 Authors
 -------

@@ -21,50 +21,18 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the entitlement to update.<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">configId</span> The ID of the configuration.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">description</span> The description of the entitlement.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">endDate</span> The end date of the entitlement's validity. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss".<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">status</span> The status of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">choices: ['ACTIVE', 'STOPPED']</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
-
-.. option:: serialNumber
-
-  The serial number of the entitlement to update.
-
-  :type: str
-  :required: True
-
-.. option:: configId
-
-  The ID of the configuration.
-
-  :type: int
-
-.. option:: description
-
-  The description of the entitlement.
-
-  :type: str
-
-.. option:: endDate
-
-  The end date of the entitlement's validity. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss".
-
-  :type: str
-
-.. option:: status
-
-  The status of the entitlement.
-
-  :type: str
-  :choices: ['ACTIVE', 'STOPPED']
 
 
 Examples
@@ -98,76 +66,23 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: entitlements
+ <ul>
+ <li><span class="li-head">entitlements</span> The entitlement you update. This list only contains one entitlement.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> The ID of the account associated with the program.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">configId</span> The config ID of the entitlement.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">description</span> The description of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">endDate</span> The end date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">startDate</span> The start date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">status</span> The status of the VM. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">token</span> The token of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">tokenStatus</span> The token status of the entitlement. Possible values are "NOTUSED" or "USED".<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  The entitlement you update. This list only contains one entitlement.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    The ID of the account associated with the program.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: configId
-  
-    The config ID of the entitlement.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: endDate
-  
-    The end date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: startDate
-  
-    The start date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: status
-  
-    The status of the VM. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".
-  
-    :type: str
-    :returned: always
-  
-  .. option:: token
-  
-    The token of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: tokenStatus
-  
-    The token status of the entitlement. Possible values are "NOTUSED" or "USED".
-  
-    :type: str
-    :returned: always
 
 Authors
 -------

@@ -21,31 +21,15 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">configId</span> The ID of a FortiFlex Configuration.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">endDate</span> VM(s) end date. It can not be before today's date or after the program's end date. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss". If not specify, it will use the program's end date automatically.<span class="li-normal">type: str</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
-
-.. option:: configId
-
-  The ID of a FortiFlex Configuration.
-
-  :type: int
-  :required: True
-
-.. option:: endDate
-
-  VM(s) end date. It can not be before today's date or after the program's end date. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss". If not specify, it will use the program's end date automatically.
-
-  :type: str
 
 
 Examples
@@ -75,76 +59,23 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: entitlements
+ <ul>
+ <li><span class="li-head">entitlements</span> A list of virtual machine entitlements and their details.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> The ID of the account associated with the program.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">configId</span> The ID of the virtual machine configuration.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">description</span> The description of the virtual machine.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">endDate</span> The end date of the virtual machine's validity.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the virtual machine.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">startDate</span> The start date of the virtual machine's validity.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">status</span> The status of the virtual machine.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">token</span> The token assigned to the virtual machine.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">tokenStatus</span> The status of the token assigned to the virtual machine.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  A list of virtual machine entitlements and their details.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    The ID of the account associated with the program.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: configId
-  
-    The ID of the virtual machine configuration.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the virtual machine.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: endDate
-  
-    The end date of the virtual machine's validity.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the virtual machine.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: startDate
-  
-    The start date of the virtual machine's validity.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: status
-  
-    The status of the virtual machine.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: token
-  
-    The token assigned to the virtual machine.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: tokenStatus
-  
-    The status of the token assigned to the virtual machine.
-  
-    :type: str
-    :returned: always
 
 Authors
 -------

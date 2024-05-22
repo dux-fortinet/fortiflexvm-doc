@@ -21,18 +21,13 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
 
 
 Examples
@@ -60,48 +55,19 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: programs
+ <ul>
+ <li><span class="li-head">programs</span> List of programs associated with the specified user.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> The ID of the account associated with the program.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">endDate</span> The end date of the program.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">hasSupportCoverage</span> A flag indicating whether the program has support coverage.<span class="li-normal">type: bool</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the program.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">startDate</span> The start date of the program.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  List of programs associated with the specified user.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    The ID of the account associated with the program.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: endDate
-  
-    The end date of the program.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: hasSupportCoverage
-  
-    A flag indicating whether the program has support coverage.
-  
-    :type: bool
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the program.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: startDate
-  
-    The start date of the program.
-  
-    :type: str
-    :returned: always
 
 Authors
 -------

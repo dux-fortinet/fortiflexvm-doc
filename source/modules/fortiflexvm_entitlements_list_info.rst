@@ -21,60 +21,20 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">accountId</span> Filter option. Account ID.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">configId</span> The ID of the configuration for which to retrieve the list of VMs.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">description</span> Filter option. Description.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">serialNumber</span> Filter option. Serial number.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">status</span> Filter option. "ACTIVE", "STOPPED", "PENDDING" or "EXPIRED".<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">tokenStatus</span> Filter option. Token status. "NOTUSED" or "USED".<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">programSerialNumber</span> Filter option. The serial number of your FortiFlex Program.<span class="li-normal">type: str</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
-
-.. option:: accountId
-
-  Filter option. Account ID.
-
-  :type: int
-
-.. option:: configId
-
-  The ID of the configuration for which to retrieve the list of VMs.
-
-  :type: int
-
-.. option:: description
-
-  Filter option. Description.
-
-  :type: str
-
-.. option:: serialNumber
-
-  Filter option. Serial number.
-
-  :type: str
-
-.. option:: status
-
-  Filter option. "ACTIVE", "STOPPED", "PENDDING" or "EXPIRED".
-
-  :type: str
-
-.. option:: tokenStatus
-
-  Filter option. Token status. "NOTUSED" or "USED".
-
-  :type: str
-
-.. option:: programSerialNumber
-
-  Filter option. The serial number of your FortiFlex Program.
-
-  :type: str
 
 
 Examples
@@ -112,76 +72,23 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: entitlements
+ <ul>
+ <li><span class="li-head">entitlements</span> List of entitlements associated with the specified config ID.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> Account ID.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">configId</span> The config ID of the entitlement.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">description</span> The description of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">endDate</span> The end date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">startDate</span> The start date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">status</span> The status of the entitlement. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">token</span> The token of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">tokenStatus</span> The token status of the entitlement. Possible values are "NOTUSED" or "USED".<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  List of entitlements associated with the specified config ID.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    Account ID.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: configId
-  
-    The config ID of the entitlement.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: endDate
-  
-    The end date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: startDate
-  
-    The start date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: status
-  
-    The status of the entitlement. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".
-  
-    :type: str
-    :returned: always
-  
-  .. option:: token
-  
-    The token of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: tokenStatus
-  
-    The token status of the entitlement. Possible values are "NOTUSED" or "USED".
-  
-    :type: str
-    :returned: always
 
 Authors
 -------

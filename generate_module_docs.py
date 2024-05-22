@@ -78,6 +78,69 @@ def transfer_option(input_dict):
                         option_list.append("    :{}: {}".format(possible_param, value))
     return option_list
 
+def transfer_option_html(input_dict):
+    def prase_option(option_name, params):
+        raw_data = ""
+        description = ""
+        if isinstance(params["description"], list):
+            description = " ".join(params["description"])
+        else:
+            description = params["description"]
+        raw_data+= ' <li><span class="li-head">{}</span> {}'.format(option_name, description)
+        for possible_param in ["type","required","choices","default"]:
+            if possible_param in params:
+                value = params[possible_param]
+                if value == "":
+                    value = '""'
+                raw_data+= '<span class="li-normal">{}: {}</span>'.format(possible_param, value)
+        raw_data+= "</li>\n"
+        return raw_data
+        
+    raw_data = ".. raw:: html\n\n"
+    raw_data += " <ul>\n"
+    for option_name, params in input_dict["options"].items():
+        raw_data += prase_option(option_name, params)
+        if "suboptions" in params:
+            raw_data+= ' <ul class="ul-self">'
+            for sub_option_name, sub_params in params["suboptions"].items():
+                raw_data += prase_option(sub_option_name, sub_params)                    
+            raw_data += ' </ul>'
+    raw_data += " </ul>\n"
+    return raw_data
+
+def transfer_return_html(input_dict):
+    def prase_return(option_name, params):
+        raw_data = ""
+        description = ""
+        if isinstance(params["description"], list):
+            description = " ".join(params["description"])
+        else:
+            description = params["description"]
+        raw_data+= ' <li><span class="li-head">{}</span> {}'.format(option_name, description)
+        for possible_param in ["type","returned"]:
+            if possible_param in params:
+                value = params[possible_param]
+                if value == "":
+                    value = '""'
+                raw_data+= '<span class="li-normal">{}: {}</span>'.format(possible_param, value)
+        raw_data+= "</li>\n"
+        return raw_data
+        
+    raw_data = ".. raw:: html\n\n"
+    def prase_return_wrapper(input_dict, first=False):
+        raw_data = ''
+        if first:
+            raw_data = ' <ul>\n'            
+        else:
+            raw_data = ' <ul class="ul-self">\n'
+        for option_name, params in input_dict.items():
+            raw_data += prase_return(option_name, params)
+            if "contains" in params:
+                raw_data += prase_return_wrapper(params["contains"])
+        raw_data += " </ul>\n"
+        return raw_data
+    raw_data += prase_return_wrapper(input_dict, first=True)
+    return raw_data
 
 module_names = [file.split(".")[0] for file in os.listdir(MODULES_PATH)]
 
@@ -94,10 +157,12 @@ for module_name in module_names:
     return_dict = yaml.safe_load(return_data)
 
     # Get parameters
-    option_list = transfer_option(documentation_dict)
-                    
+    # option_list = transfer_option(documentation_dict)
+    option_html = transfer_option_html(documentation_dict)
+
     # Get return values
-    return_list = transfer_return(return_dict)
+    # return_list = transfer_return(return_dict)
+    return_html = transfer_return_html(return_dict)
 
     # Write new document
     output_path = os.path.join(OUTPUT_DIR, module_name+".rst")
@@ -108,8 +173,9 @@ for module_name in module_names:
                                     version_added = documentation_dict["version_added"],
                                     example = "\n  ".join(example_data.split("\n")),
                                     authors = "\n- " + "\n- ".join(documentation_dict["author"]),
-                                    options = "\n".join(option_list),
-                                    returns = "\n".join(return_list))
+                                    options = option_html, # "\n".join(option_list),
+                                    returns = return_html # "\n".join(return_list)
+    )
 
     with open(output_path, "w") as f:
         f.write(output_data)

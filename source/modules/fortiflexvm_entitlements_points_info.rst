@@ -21,56 +21,19 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">accountId</span> Account ID.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">configId</span> The ID of the configuration.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">endDate</span> The end date of the date range to query. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is YYYY-MM-DD.<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">programSerialNumber</span> The serial number of your FortiFlex Program.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">serialNumber</span> The entitlement serial number. Instead of configId you can pass serialNumber to get results for one VM only.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">startDate</span> The start date of the date range to query. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is YYYY-MM-DD.<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
-
-.. option:: accountId
-
-  Account ID.
-
-  :type: int
-
-.. option:: configId
-
-  The ID of the configuration.
-
-  :type: int
-
-.. option:: endDate
-
-  The end date of the date range to query. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is YYYY-MM-DD.
-
-  :type: str
-  :required: True
-
-.. option:: programSerialNumber
-
-  The serial number of your FortiFlex Program.
-
-  :type: str
-
-.. option:: serialNumber
-
-  The entitlement serial number. Instead of configId you can pass serialNumber to get results for one VM only.
-
-  :type: str
-
-.. option:: startDate
-
-  The start date of the date range to query. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is YYYY-MM-DD.
-
-  :type: str
-  :required: True
 
 
 Examples
@@ -106,34 +69,17 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: entitlements
+ <ul>
+ <li><span class="li-head">entitlements</span> List of entitlements and their consumed points in the specified date range.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> The ID of the account associated with the program.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">points</span> The total points consumed by the entitlement in the specified date range.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  List of entitlements and their consumed points in the specified date range.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    The ID of the account associated with the program.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: points
-  
-    The total points consumed by the entitlement in the specified date range.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the entitlement.
-  
-    :type: str
-    :returned: always
 
 Authors
 -------

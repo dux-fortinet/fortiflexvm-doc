@@ -21,24 +21,14 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">accountId</span> Account ID.<span class="li-normal">type: str</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
-
-.. option:: accountId
-
-  Account ID.
-
-  :type: str
 
 
 Examples
@@ -67,41 +57,18 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: groups
+ <ul>
+ <li><span class="li-head">groups</span> List of groups associated with the specified user.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> Account ID.<span class="li-normal">type: int</span><span class="li-normal">returned: if specified account ID in the argument</span></li>
+ <li><span class="li-head">availableTokens</span> The number of available tokens for the FortiFlex group.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">folderPath</span> The folder path of the FortiFlex group.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">usedTokens</span> The number of used tokens for the FortiFlex group.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  List of groups associated with the specified user.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    Account ID.
-  
-    :type: int
-    :returned: if specified account ID in the argument
-  
-  .. option:: availableTokens
-  
-    The number of available tokens for the FortiFlex group.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: folderPath
-  
-    The folder path of the FortiFlex group.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: usedTokens
-  
-    The number of used tokens for the FortiFlex group.
-  
-    :type: int
-    :returned: always
 
 Authors
 -------

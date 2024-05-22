@@ -4,7 +4,11 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.1.0 ``latest``    | 2024/01/25     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.1.0`` |
+| 2.2.1 ``latest``    | 2024/05/24     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.2.1`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.2.0               | 2024/03/29     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.2.0`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.1.0               | 2024/01/25     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.1.0`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 2.0.2               | 2023/11/15     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.0.2`` |
 +---------------------+----------------+------------------------------------------------------------------+
@@ -19,6 +23,22 @@ FortiFlexVM Galaxy Versions and Release Notes
 ``ansible-galaxy collection install -f fortinet.fortiflexvm:x.x.x``) to
 renew your existing local installation.
 
+
+
+Release Galaxy 2.2.1
+--------------------
+
+Release Summary
+^^^^^^^^^^^^^^^
+
+Release FortiFlex 2.2.1, 2 new configurations.
+
+Bugfixes
+^^^^^^^^
+
+- Configuration fortiAnalyzer support parameter addons.
+- Suppoered 2 new configuration fortiAPHardware, fortiSwitchHardware.
+- fortiflexvm_entitlements_vm_create supported parameter skipPending.
 
 
 Release Galaxy 2.2.0

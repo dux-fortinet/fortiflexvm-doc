@@ -21,42 +21,17 @@ The below requirements are needed on the host that executes this module.
 
 Parameters
 ----------
+.. raw:: html
 
-.. option:: username
+ <ul>
+ <li><span class="li-head">username</span> The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">password</span> The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">accountId</span> Account ID. Please declare at least one of the two arguments, accountId or configId.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">configId</span> The ID of a Flex VM Configuration. Please declare at least one of the two arguments, accountId or configId.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">folderPath</span> Folder path.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">status</span> Filter option. A list. Possible values are "ACTIVE", "PENDDING", "STOPPED" and "EXPIRED".<span class="li-normal">type: list</span></li>
+ </ul>
 
-  The username to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_USERNAME.
-
-  :type: str
-
-.. option:: password
-
-  The password to authenticate. If not declared, the code will read the environment variable FORTIFLEX_ACCESS_PASSWORD.
-
-  :type: str
-
-.. option:: accountId
-
-  Account ID. Please declare at least one of the two arguments, accountId or configId.
-
-  :type: str
-
-.. option:: configId
-
-  The ID of a Flex VM Configuration. Please declare at least one of the two arguments, accountId or configId.
-
-  :type: int
-
-.. option:: folderPath
-
-  Folder path.
-
-  :type: str
-
-.. option:: status
-
-  Filter option. A list. Possible values are "ACTIVE", "PENDDING", "STOPPED" and "EXPIRED".
-
-  :type: list
 
 
 Examples
@@ -92,76 +67,23 @@ Examples
 
 Return Values
 -------------
+.. raw:: html
 
-.. option:: entitlements
+ <ul>
+ <li><span class="li-head">entitlements</span> Next available (unused) token. This list only has one element.<span class="li-normal">type: list</span><span class="li-normal">returned: always</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">accountId</span> Account ID.<span class="li-normal">type: int</span><span class="li-normal">returned: if specified account ID in the argument</span></li>
+ <li><span class="li-head">configId</span> The config ID of the entitlement.<span class="li-normal">type: int</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">description</span> The description of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">endDate</span> The end date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">serialNumber</span> The serial number of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">startDate</span> The start date of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">status</span> The status of the entitlement. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">token</span> The token of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ <li><span class="li-head">tokenStatus</span> The token status of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">returned: always</span></li>
+ </ul>
+ </ul>
 
-  Next available (unused) token. This list only has one element.
-
-  :type: list
-  :returned: always
-  
-  .. option:: accountId
-  
-    Account ID.
-  
-    :type: int
-    :returned: if specified account ID in the argument
-  
-  .. option:: configId
-  
-    The config ID of the entitlement.
-  
-    :type: int
-    :returned: always
-  
-  .. option:: description
-  
-    The description of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: endDate
-  
-    The end date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: serialNumber
-  
-    The serial number of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: startDate
-  
-    The start date of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: status
-  
-    The status of the entitlement. Possible values are "PENDING", "ACTIVE", "STOPPED" or "EXPIRED".
-  
-    :type: str
-    :returned: always
-  
-  .. option:: token
-  
-    The token of the entitlement.
-  
-    :type: str
-    :returned: always
-  
-  .. option:: tokenStatus
-  
-    The token status of the entitlement.
-  
-    :type: str
-    :returned: always
 
 Authors
 -------

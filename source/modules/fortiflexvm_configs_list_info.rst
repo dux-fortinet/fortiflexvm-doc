@@ -16,7 +16,7 @@ Requirements
 
 The below requirements are needed on the host that executes this module.
 
-- ansible>=2.9
+- ansible>=2.15
 
 
 Parameters
@@ -118,12 +118,12 @@ Return Values
  <li><span class="li-head">fortiADC</span> FortiADC Virtual Machine.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
  <li><span class="li-head">cpu</span> Number of CPUs. The value of this attribute is one of "1", "2", "4", "8", "16" or "32".<span class="li-normal">type: str</span></li>
- <li><span class="li-head">service</span> Support Service. "FDVSTD" (Standard), "FDVADV" (Advanced) or "FDVFC247" (FortiCare Premium).<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">service</span> Support Service. "FDVFC247" (FortiCare Premium), "FDVNET" (Network Security), "FDVAPP" (Application Security), "FDVAI" (AI Security).<span class="li-normal">type: str</span></li>
  </ul>
  <li><span class="li-head">fortiGateHardware</span> FortiGate Hardware.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
  <li><span class="li-head">model</span> The device model. Possible values are FGT40F (FortiGate-40F), FGT60F (FortiGate-60F), FGT70F (FortiGate-70F), FGT80F (FortiGate-80F), FG100F (FortiGate-100F), FGT60E (FortiGate-60E), FGT61F (FortiGate-61F), FG100E (FortiGate-100E), FG101F (FortiGate-101F), FG200E (FortiGate-200E), FG200F (FortiGate-200F), FG201F (FortiGate-201F), FG4H0F (FortiGate-400F), FG6H0F (FortiGate-600F), FWF40F (FortiWifi-40F), FWF60F (FortiWifi-60F), FGR60F (FortiGateRugged-60F), FR70FB (FortiGateRugged-70F), FGT81F (FortiGate-81F), FG101E (FortiGate-101E), FG4H1F (FortiGate-401F), FG1K0F (FortiGate-1000F), FG180F (FortiGate-1800F), F2K60F (FortiGate-2600F), FG3K0F (FortiGate-3000F), FG3K1F (FortiGate-3001F), FG3K2F (FortiGate-3200F), FG40FI (FortiGate 40F-3G4G), FW40FI (FortiWifi 40F-3G4G), FWF61F (FortiWifi 61F), FR60FI (FortiGateRugged 60F 3G4G), FGT71F (FortiGate 71F), FG80FP (FortiGate 80F-PoE), FG80FB (FortiGate 80F-Bypass), FG80FD (FortiGate 80F DSL), FWF80F (FortiWiFi 80F-2R), FW80FS (FortiWiFi 80F-2R-3G4G-DSL), FWF81F (FortiWiFi 81F 2R), FW81FS (FortiWiFi 81F-2R-3G4G-DSL), FW81FD (FortiWiFi 81F-2R-3G4G-PoE), FW81FP (FortiWiFi 81F 2R POE), FG81FP (FortiGate 81F-PoE), FGT90G (FortiGate 90G), FGT91G (FortiGate 91G), FG201E (FortiGate 201E), FG4H0E (FortiGate 400E), FG4HBE (FortiGate 400E BYPASS), FG4H1E (FortiGate 401E), FD4H1E (FortiGate 401E DC), FG6H0E (FortiGate 600E), FG6H1E (FortiGate 601E), FG6H1F (FortiGate 601F), FG9H0G (FortiGate 900G), FG9H1G (FortiGate 901G), FG1K1F (FortiGate 1001F), FG181F (FortiGate 1801F), FG3K7F (FortiGate 3700F), FG39E6 (FortiGate 3960E), FG441F (FortiGate 4401F).<span class="li-normal">type: str</span></li>
- <li><span class="li-head">service</span> Support Service. Possible values are FGHWFC247 (FortiCare Premium), FGHWFCEL (FortiCare Elite), FDVFC247 (ATP), FGHWUTP (UTP) or FGHWENT (Enterprise).<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">service</span> Support Service. Possible values are FGHWFC247 (FortiCare Premium), FGHWFCEL (FortiCare Elite), FGHWATP (ATP), FGHWUTP (UTP) or FGHWENT (Enterprise).<span class="li-normal">type: str</span></li>
  <li><span class="li-head">addons</span> Addons. Possible values are NONE, FGHWFCELU (FortiCare Elite Upgrade), FGHWFAMS (FortiGate Cloud Management), FGHWFAIS (AI-Based In-line Sandbox), FGHWSWNM (SD-WAN Underlay), FGHWDLDB (FortiGuard DLP), FGHWFAZC (FortiAnalyzer Cloud), FGHWSOCA (SOCaaS), FGHWMGAS (Managed FortiGate), FGHWSPAL (SD-WAN Connector for FortiSASE), FGHWFCSS (FortiConverter Service).<span class="li-normal">type: list</span></li>
  </ul>
  <li><span class="li-head">fortiAPHardware</span> FortiAP Hardware.<span class="li-normal">type: dict</span></li>

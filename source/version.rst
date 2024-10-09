@@ -4,7 +4,9 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.2.2 ``latest``    | 2024/08/07     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.2.2`` |
+| 2.2.3 ``latest``    | 2024/10/11     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.2.3`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.2.2               | 2024/08/07     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.2.2`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 2.2.1               | 2024/05/24     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.2.1`` |
 +---------------------+----------------+------------------------------------------------------------------+
@@ -24,6 +26,23 @@ FortiFlexVM Galaxy Versions and Release Notes
 **Note**: Use ``-f`` option (i.e.
 ``ansible-galaxy collection install -f fortinet.fortiflexvm:x.x.x``) to
 renew your existing local installation.
+
+
+Release Galaxy 2.2.3
+--------------------
+
+Release Summary
+^^^^^^^^^^^^^^^
+
+Release FortiFlex 2.2.3.
+
+Bugfixes
+^^^^^^^^
+
+- Added two configurations, `fortiRecon` and `fortiSIEMCloud`.
+- Configuration `fortiSASE` supported new argument `computeRegion`.
+- Improved error message content.
+
 
 
 Release Galaxy 2.2.2

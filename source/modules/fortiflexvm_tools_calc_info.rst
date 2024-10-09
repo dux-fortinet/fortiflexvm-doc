@@ -92,11 +92,22 @@ Parameters
  <ul class="ul-self"> <li><span class="li-head">users</span> Number of users. Number between 50 and 50,000 (inclusive). Value should be divisible by 25.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">service</span> Service package. "FSASESTD" (Standard) or "FSASEADV" (Advanced).<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">bandwidth</span> Number between 25 and 10,000 (inclusive). Value should be divisible by 25.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
- <li><span class="li-head">dedicatedIPs</span> Number between 4 and 65,534 (inclusive).<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">dedicatedIPs</span> Number between 4 and 65,534 (inclusive). Value should be divisible by 4.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">computeRegion</span> Additional Compute Region. Number between 0 and 16 (inclusive). It can be scaled up in an increment of 1 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
  </ul> <li><span class="li-head">fortiEDR</span> fortiEDR Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self"> <li><span class="li-head">service</span> Service package. "FEDRPDR" (Discover/Protect/Respond).<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">endpoints</span> Number of Endpoints. Value should be between 0 and 50000.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">addons</span> Addons. A list. Possible value is "FEDRXDR" (XDR).<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
+ </ul> <li><span class="li-head">fortiRecon</span> fortiRecon Cloud Configuration.<span class="li-normal">type: dict</span></li>
+ <ul class="ul-self"> <li><span class="li-head">service</span> Service package. FRNEASM (External Attack Surface Monitoring); FRNEASMBP (External Attack Surface Monitoring & Brand Protect); FRNEASMBPACI (External Attack Surface Monitoring & Brand Protect & Adversary Centric Intelligence).<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">assets</span> Number of Monitored Assets. Number between 200 and 1,000,000 (inclusive). Value should be divisible by 50.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">networks</span> Internal Attack Surface Monitoring (number of networks). Number between 0 and 100 (inclusive).<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">executives</span> Executive Monitoring (number of executives). Number between 0 and 1,000 (inclusive).<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">vendors</span> Vendor Monitoring (number of vendors). Number between 0 and 1,000 (inclusive).<span class="li-normal">type: int</span></li>
+ </ul> <li><span class="li-head">fortiSIEMCloud</span> fortiSIEM Cloud Configuration.<span class="li-normal">type: dict</span></li>
+ <ul class="ul-self"> <li><span class="li-head">computeUnits</span> Number of Compute Units. Number between 10 and 600 (inclusive).<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">onlineStorage</span> Additional Online Storage. Number between 500 and 60,000 (inclusive). Value should be divisible by 500. It can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">archiveStorage</span> Archive Storage. Number between 0 and 60,000 (inclusive). Value should be divisible by 500. can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
  </ul> </ul>
 
 
@@ -220,12 +231,28 @@ Examples
           #   users: 50                         # 50 ~ 50000. Value should be divisible by 25.
           #   service: "FSASESTD"               # "FSASESTD" (Standard) or "FSASEADV" (Advanced).
           #   bandwidth: 100                    # 25 ~ 10000. Value should be divisible by 25.
-          #   dedicatedIPs: 10                  # 4 ~ 65534
+          #   dedicatedIPs: 12                  # 4 ~ 65534.  Value should be divisible by 4.
+          #   computeRegion: 1                  # 0 ~ 16. It can be scaled up in an increment of 1 but scaling down is NOT allowed.
   
           # fortiEDR:
           #   service: "FEDRPDR"                # "FEDRPDR" (Discover/Protect/Respond)
           #   endpoints: 10                     # Value should be between 0 and 50000
           #   addons: ["FEDRXDR"]               # Empty list or "FEDRXDR"
+  
+          # fortiRecon:
+          #   service: "FRNEASM"                # "FRNEASM", "FRNEASMBP", "FRNEASMBPACI"
+          #   assets: 200                       # 200 ~ 1000000. Value should be divisible by 50
+          #   networks: 0                       # 0 ~ 100
+          #   executives: 0                     # 0 ~ 1000
+          #   vendors: 0                        # 0 ~ 100
+  
+          # fortiSIEMCloud:
+          #   computeUnits: 10                  # 10 ~ 600
+          #   onlineStorage: 500                # 500 ~ 60000. Value should be divisible by 500.
+          #                                     # It can be scaled up in an increment of 500 but scaling down is NOT allowed.
+          #   archiveStorage: 0                 # 0 ~ 60000. Value should be divisible by 500.
+          #                                     # It can be scaled up in an increment of 500 but scaling down is NOT allowed.
+  
         register: result
   
       - name: Display response

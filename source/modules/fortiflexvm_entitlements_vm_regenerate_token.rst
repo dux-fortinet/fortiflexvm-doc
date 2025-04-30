@@ -47,7 +47,7 @@ Examples
         fortinet.fortiflexvm.fortiflexvm_entitlements_vm_regenerate_token:
           username: "{{ username }}"
           password: "{{ password }}"
-          serialNumber: "FGVMMLTM23001324"
+          serialNumber: "FGVMMLTM00000000"
           regenerate: true # If you set it as false, FortiFlexvm ansible collection will return an empty list.
         register: result
   

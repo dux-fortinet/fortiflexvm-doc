@@ -45,6 +45,7 @@ Examples
     vars:
       username: "<your_own_value>"
       password: "<your_own_value>"
+      config_id: 12345
     tasks:
       - name: Update an entitlement.
         fortinet.fortiflexvm.fortiflexvm_entitlements_update:
@@ -52,10 +53,10 @@ Examples
           password: "{{ password }}"
           serialNumber: "FGVMXXXX00000000"
           # Please specify configId if you want to update configId, description or endDate
-          configId: 3196
-          description: "Modify through Ansible" # Optional.
-          endDate: "2024-12-12T00:00:00"        # Optional. If not set, it will use the program end date automatically.
-          status: "ACTIVE"                      # Optional. ACTIVE or STOPPED
+          configId: "{{ config_id }}"
+          # description: "Modify through Ansible" # Optional.
+          # endDate: "2024-12-12T00:00:00"        # Optional. If not set, it will use the program end date automatically.
+          # status: "ACTIVE"                      # Optional. ACTIVE or STOPPED
         register: result
   
       - name: Display response

@@ -12,7 +12,7 @@ copyright = '2023, Fortinet'
 author = 'Fortinet'
 
 # The full version, including alpha/beta/rc tags
-release = '2.2.3'
+release = '2.3.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

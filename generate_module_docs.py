@@ -145,6 +145,7 @@ def transfer_return_html(input_dict):
 module_names = [file.split(".")[0] for file in os.listdir(MODULES_PATH)]
 
 for module_name in module_names:
+    print("Handling module: {}".format(module_name))
     # Get document in the code
     source_code = ""
     with open(os.path.join(MODULES_PATH, module_name+".py"), "r") as f:

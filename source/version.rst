@@ -4,7 +4,9 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.3.0 ``latest``    | 2025/05/02     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.0`` |
+| 2.3.1 ``latest``    | 2026/02/03     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.1`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.3.0               | 2025/05/02     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.0`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 2.2.3               | 2024/10/17     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.2.3`` |
 +---------------------+----------------+------------------------------------------------------------------+
@@ -29,6 +31,21 @@ FortiFlexVM Galaxy Versions and Release Notes
 ``ansible-galaxy collection install -f fortinet.fortiflexvm:x.x.x``) to
 renew your existing local installation.
 
+
+Release Galaxy 2.3.1
+--------------------
+
+Release Summary
+^^^^^^^^^^^^^^^
+
+Release FortiFlex 2.3.1.
+
+Bugfixes
+^^^^^^^^
+
+- Added 3 new configurations. fortiAppSec, fortiDLP, fortiManagerCloud.
+- Backend API URL and authentication URL can be overwritten by environment variables FORTIFLEX_API_URL and FORTIFLEX_AUTH_URL.
+- Updated the schemas of the existing configurations.
 
 Release Galaxy 2.3.0
 --------------------

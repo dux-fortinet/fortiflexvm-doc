@@ -127,9 +127,10 @@ Parameters
  <ul class="ul-self"> <li><span class="li-head">computeUnits</span> Number of Compute Units. Number between 10 and 600 (inclusive).<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">onlineStorage</span> Additional Online Storage. Number between 500 and 60,000 (inclusive). Value should be divisible by 500. It can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">archiveStorage</span> Archive Storage. Number between 0 and 60,000 (inclusive). Value should be divisible by 500. can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">region</span> Region. Possible values include "RegionA", "RegionB".<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
  </ul> <li><span class="li-head">fortiAppSec</span> fortiAppSec Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self"> <li><span class="li-head">services</span> Services. A list. Possible values include "UCWAF" (Cloud WAF), "UCGSLB" (Cloud GSLB).<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
- <li><span class="li-head">WAF_services</span> WAF Services. Required if services includes "UCWAF". Possible values include "UCWAFSTD" (Standard), "UCWAFADV" (Advanced), "UCWAFENT" (Enterprise), "NONE" (Only if services does not include "UCWAF").<span class="li-normal">type: str</span><span class="li-normal">default: NONE</span></li>
+ <li><span class="li-head">WAF_services</span> WAF Services. Required if services includes "UCWAF". Possible values include "UCWAFSTD" (Standard), "UCWAFADV" (Advanced), "UCWAFENT" (Enterprise), "NONE".<span class="li-normal">type: str</span><span class="li-normal">default: NONE</span></li>
  <li><span class="li-head">addons</span> Add-ons. A list. Possible value is "UCSOCA" (SOCaaS).<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
  </ul> <li><span class="li-head">fortiDLP</span> fortiDLP Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self"> <li><span class="li-head">service</span> Service package. Possible values include "DLPSTD" (Standard), "DLPENT" (Enterprise), "DLPENTP" (Enterprise Premium).<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
@@ -357,6 +358,7 @@ Examples
           #                                     # It can be scaled up in an increment of 500 but scaling down is NOT allowed.
           #   archiveStorage: 0                 # 0 ~ 60000. Value should be divisible by 500.
           #                                     # It can be scaled up in an increment of 500 but scaling down is NOT allowed.
+          #   region: "RegionA"                 # "RegionA", "RegionB"
   
           # [FortiAppSec]
           # fortiAppSec:
@@ -536,11 +538,12 @@ Return Values
  <li><span class="li-head">computeUnits</span> Number of Compute Units. Number between 10 and 600 (inclusive).<span class="li-normal">type: int</span></li>
  <li><span class="li-head">onlineStorage</span> Additional Online Storage. Number between 500 and 60,000 (inclusive). Value should be divisible by 500. It can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">archiveStorage</span> Archive Storage. Number between 0 and 60,000 (inclusive). Value should be divisible by 500. can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">region</span> Region. Possible values include "RegionA", "RegionB".<span class="li-normal">type: str</span></li>
  </ul>
  <li><span class="li-head">fortiAppSec</span> fortiAppSec Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
  <li><span class="li-head">services</span> Services. A list. Possible values include "UCWAF" (Cloud WAF), "UCGSLB" (Cloud GSLB).<span class="li-normal">type: list</span></li>
- <li><span class="li-head">WAF_services</span> WAF Services. Required if services includes "UCWAF". Possible values include "UCWAFSTD" (Standard), "UCWAFADV" (Advanced), "UCWAFENT" (Enterprise), "NONE" (Only if services does not include "UCWAF").<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">WAF_services</span> WAF Services. Required if services includes "UCWAF". Possible values include "UCWAFSTD" (Standard), "UCWAFADV" (Advanced), "UCWAFENT" (Enterprise).<span class="li-normal">type: str</span></li>
  <li><span class="li-head">addons</span> Add-ons. A list. Possible value is "UCSOCA" (SOCaaS).<span class="li-normal">type: list</span></li>
  </ul>
  <li><span class="li-head">fortiDLP</span> fortiDLP Cloud Configuration.<span class="li-normal">type: dict</span></li>

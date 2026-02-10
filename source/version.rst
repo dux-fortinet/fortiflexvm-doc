@@ -4,7 +4,7 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.3.1 ``latest``    | 2026/02/03     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.1`` |
+| 2.3.1 ``latest``    | 2026/02/11     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.1`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 2.3.0               | 2025/05/02     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.0`` |
 +---------------------+----------------+------------------------------------------------------------------+

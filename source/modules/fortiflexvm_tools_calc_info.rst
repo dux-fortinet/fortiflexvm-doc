@@ -112,7 +112,7 @@ Parameters
  <li><span class="li-head">computeRegion_PublicCloud</span> Additional Compute Region. Number between 0 and 16 (inclusive). It can be scaled up in an increment of 1 but scaling down is NOT allowed.<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
  </ul> <li><span class="li-head">fortiEDR</span> fortiEDR Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self"> <li><span class="li-head">service</span> Service package. "FEDRPDR" (Discover/Protect/Respond).<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
- <li><span class="li-head">endpoints</span> Number of Endpoints. Value should be between 0 and 50000.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
+ <li><span class="li-head">endpoints</span> Number of Endpoints. Value should be between 0 and 50000.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">addons</span> Add-on services. A list, can be empty. Possible value is "FEDRXDR" (XDR).<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
  <li><span class="li-head">repoStorage</span> Repository Storage. Number between 0 and 30720 (inclusive) It can be scaled up in an increment of 512 but scaling down is NOT allowed.<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
  </ul> <li><span class="li-head">fortiNDRCloud</span> fortiNDR Cloud Configuration.<span class="li-normal">type: dict</span></li>
@@ -127,9 +127,10 @@ Parameters
  <ul class="ul-self"> <li><span class="li-head">computeUnits</span> Number of Compute Units. Number between 10 and 600 (inclusive).<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">onlineStorage</span> Additional Online Storage. Number between 500 and 60,000 (inclusive). Value should be divisible by 500. It can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">archiveStorage</span> Archive Storage. Number between 0 and 60,000 (inclusive). Value should be divisible by 500. can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">region</span> Region. Possible values include "RegionA", "RegionB".<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
  </ul> <li><span class="li-head">fortiAppSec</span> fortiAppSec Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self"> <li><span class="li-head">services</span> Services. A list. Possible values include "UCWAF" (Cloud WAF), "UCGSLB" (Cloud GSLB).<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
- <li><span class="li-head">WAF_services</span> WAF Services. Required if services includes "UCWAF". Possible values include "UCWAFSTD" (Standard), "UCWAFADV" (Advanced), "UCWAFENT" (Enterprise), "NONE" (Only if services does not include "UCWAF").<span class="li-normal">type: str</span><span class="li-normal">default: NONE</span></li>
+ <li><span class="li-head">WAF_services</span> WAF Services. Required if services includes "UCWAF". Possible values include "UCWAFSTD" (Standard), "UCWAFADV" (Advanced), "UCWAFENT" (Enterprise), "NONE".<span class="li-normal">type: str</span><span class="li-normal">default: NONE</span></li>
  <li><span class="li-head">addons</span> Add-ons. A list. Possible value is "UCSOCA" (SOCaaS).<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
  <li><span class="li-head">throughput</span> Throughput.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">applications</span> Applications.<span class="li-normal">type: int</span></li>
@@ -343,6 +344,7 @@ Examples
           #                                     # It can be scaled up in an increment of 500 but scaling down is NOT allowed.
           #   archiveStorage: 0                 # 0 ~ 60000. Value should be divisible by 500.
           #                                     # It can be scaled up in an increment of 500 but scaling down is NOT allowed.
+          #   region: "RegionA"                 # "RegionA", "RegionB"
   
           # [FortiAppSec]
           # fortiAppSec:

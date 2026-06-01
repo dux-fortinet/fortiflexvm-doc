@@ -82,6 +82,9 @@ Return Values
  <ul class="ul-self">
  <li><span class="li-head">device</span> Number of managed devices. A number between 1 and 100000 (inclusive).<span class="li-normal">type: int</span></li>
  <li><span class="li-head">adom</span> Number of ADOMs. A number between 0 and 100000 (inclusive).<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">service</span> Service Package. Valid values are "FMGFC247" (FortiCare Premium) or "FMGFCEL" (FortiCare Elite).<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">addons</span> Add-ons. A list, can be empty. Possible value is "FMGAISN" (FortiAI Service).<span class="li-normal">type: list</span></li>
+ <li><span class="li-head">fortiAITokens</span> FortiAI Additional Tokens. Number between 0 and 500000000 (inclusive).<span class="li-normal">type: int</span></li>
  </ul>
  <li><span class="li-head">fortiWeb</span> FortiWeb Virtual Machine - Service Bundle.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
@@ -155,6 +158,11 @@ Return Values
  <li><span class="li-head">model</span> Device model. For all supported models, please check FNDN. Possible values include S108EN (FortiSwitch-108E), S108EF (FortiSwitch-108E-FPOE), S108EP (FortiSwitch-108E-POE), S108FN (FortiSwitch-108F), S108FF (FortiSwitch-108F-FPOE), S108FP (FortiSwitch-108F-POE), S124EN (FortiSwitch-124E), S124EF (FortiSwitch-124E-FPOE), S124EP (FortiSwitch-124E-POE), S124FN (FortiSwitch-124F), S124FF (FortiSwitch-124F-FPOE), S124FP (FortiSwitch-124F-POE), S148EN (FortiSwitch-148E), S148EP (FortiSwitch-148E-POE), S148FN (FortiSwitch-148F), S148FF (FortiSwitch-148F-FPOE), S148FP (FortiSwitch-148F-POE), S224DF (FortiSwitch-224D-FPOE), S224EN (FortiSwitch-224E), S224EP (FortiSwitch-224E-POE), S248DN (FortiSwitch-248D), S248EF (FortiSwitch-248E-FPOE), S248EP (FortiSwitch-248E-POE), S424DN (FortiSwitch-424D), S424DF (FortiSwitch-424D-FPOE), S424DP (FortiSwitch-424D-POE), S424EN (FortiSwitch-424E), S424EF (FortiSwitch-424E-FPOE), S424EI (FortiSwitch-424E-Fiber), S424EP (FortiSwitch-424E-POE), S448DN (FortiSwitch-448D), S448DP (FortiSwitch-448D-POE), S448EN (FortiSwitch-448E), S448EF (FortiSwitch-448E-FPOE), S448EP (FortiSwitch-448E-POE), S524DN (FortiSwitch-524D), S524DF (FortiSwitch-524D-FPOE), S548DN (FortiSwitch-548D), S548DF (FortiSwitch-548D-FPOE), S624FN (FortiSwitch-624F), S624FF (FortiSwitch-624F-FPOE), S648FN (FortiSwitch-648F), S648FF (FortiSwitch-648F-FPOE), FS1D24 (FortiSwitch-1024D), FS1E24 (FortiSwitch-1024E), FS1D48 (FortiSwitch-1048D), FS1E48 (FortiSwitch-1048E), FS2F48 (FortiSwitch-2048F), FS3D32 (FortiSwitch-3032D), FS3E32 (FortiSwitch-3032E), S426EF (FortiSwitch-M426E-FPOE), ST1E24 (FortiSwitch-T1024E), SR12DP (FortiSwitchRugged-112D-POE), SR24DN (FortiSwitchRugged-124D), SM10GF (FortiSwitch-110G-FPOE), SR16FP (FortiSwitchRugged-216F-POE), SR24FP (FortiSwitchRugged-424F-POE).<span class="li-normal">type: str</span></li>
  <li><span class="li-head">service</span> Support service package. Possible values include FSWHWFC247 (FortiCare Premium), FSWHWFCEL (FortiCare Elite).<span class="li-normal">type: str</span></li>
  </ul>
+ <li><span class="li-head">fortiExtenderHardware</span> FortiExtender Hardware.<span class="li-normal">type: dict</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">model</span> Device model. For all supported models, please check FNDN. Possible values include BS10FW (FortiBranchSASE-10F-WiFi), BS20GN (FortiBranchSASE-20G), BS20GW (FortiBranchSASE-20G-WiFi), FXE11G (FortiExtender-101G), FX200F (FortiExtender-200F), FXE21F (FortiExtender-201F-EA), FXA22F (FortiExtender-202F-AM), FX211G (FortiExtender-211G), FX311F (FortiExtender-311F), FX511F (FortiExtender-511F), FXN51G (FortiExtender-511G), FXW51G (FortiExtender-511G-WiFi), FXR51G (FortiExtenderRugged-511G), FVG21F (FortiExtenderVehicle-211F), FVA21F (FortiExtenderVehicle-211F-AM), FVG22F (FortiExtenderVehicle-212F), FVA22F (FortiExtenderVehicle-212F-AM), FVG51G (FortiExtenderVehicle-511G).<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">service</span> Service Package. Valid values are "FEXHWFC247" (FortiCare Premium) or "FEXHWFSSB" (SASE Protection Bundle).<span class="li-normal">type: str</span></li>
+ </ul>
  <li><span class="li-head">fortiCloudPrivate</span> FortiWeb Cloud, Private.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
  <li><span class="li-head">throughput</span> Average Throughput (Mbps). Possible values are 10, 25, 50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000.<span class="li-normal">type: int</span></li>
@@ -178,7 +186,10 @@ Return Values
  <ul class="ul-self">
  <li><span class="li-head">users</span> Number of users. Number between 50 and 50,000 (inclusive). Number between 50 and 50,000 (inclusive). Value should be divisible by 25.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">service</span> Service package. Possible values include "FSASESTD" (Standard), "FSASEADV" (Advanced), "FSASECOM" (Comprehensive).<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">bandwidth</span> Deprecated. Use dataTransfer instead. Bandwidth (Mbps). Number between 0 and 10000 (inclusive).<span class="li-normal">type: int</span></li>
  <li><span class="li-head">dedicatedIPs</span> Number between 4 and 65,534 (inclusive). Value should be divisible by 4.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">computeRegion</span> Deprecated. Use computeRegion_FortinetCloud and/or computeRegion_PublicCloud instead. Additional Compute Region. Number between 0 and 16 (inclusive).<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">onRampLocations</span> Deprecated. Use onRampLocations_FortinetCloud and/or onRampLocations_PublicCloud instead. SD-WAN On-Ramp Locations. Number between 0 and 8 (inclusive).<span class="li-normal">type: int</span></li>
  <li><span class="li-head">dataTransfer</span> Data Transfer. Number between 0 and 2,500,000 (inclusive). Value should be divisible by 250.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">onRampLocations_FortinetCloud</span> SD-WAN On-Ramp Locations. Number between 0 and 20 (inclusive). It can be scaled up in an increment of 1 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">onRampLocations_PublicCloud</span> SD-WAN On-Ramp Locations. Number between 0 and 20 (inclusive). It can be scaled up in an increment of 1 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
@@ -212,11 +223,20 @@ Return Values
  <li><span class="li-head">archiveStorage</span> Archive Storage. Number between 0 and 60,000 (inclusive). Value should be divisible by 500. can be scaled up in an increment of 500 but scaling down is NOT allowed.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">region</span> Region. Possible values include "RegionA", "RegionB".<span class="li-normal">type: str</span></li>
  </ul>
+ <li><span class="li-head">fortiDeceptorCloud</span> FortiDeceptor Cloud Configuration.<span class="li-normal">type: dict</span></li>
+ <ul class="ul-self">
+ <li><span class="li-head">service</span> Service package. Valid value is "FDCPREM" (Premium Bundle).<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">vlans</span> Number of VLANs. Number between 2 and 1024 (inclusive).<span class="li-normal">type: int</span></li>
+ </ul>
  <li><span class="li-head">fortiAppSec</span> fortiAppSec Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
  <li><span class="li-head">services</span> Services. A list. Possible values include "UCWAF" (Cloud WAF), "UCGSLB" (Cloud GSLB).<span class="li-normal">type: list</span></li>
  <li><span class="li-head">WAF_services</span> WAF Services. Required if services includes "UCWAF". Possible values include "UCWAFSTD" (Standard), "UCWAFADV" (Advanced), "UCWAFENT" (Enterprise), "NONE".<span class="li-normal">type: str</span></li>
  <li><span class="li-head">addons</span> Add-ons. A list. Possible value is "UCSOCA" (SOCaaS).<span class="li-normal">type: list</span></li>
+ <li><span class="li-head">throughput</span> Throughput. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">applications</span> Applications. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">QPS</span> QPS. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">healthChecks</span> Health Checks. Read only.<span class="li-normal">type: int</span></li>
  </ul>
  <li><span class="li-head">fortiDLP</span> fortiDLP Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">

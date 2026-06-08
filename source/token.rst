@@ -32,16 +32,16 @@ Click **Next > Confirm** to create an API user. The system will randomly assign 
 Step 3: Download your username and password
 --------------------------------------------------------------------
 
-Go to the `IAM User Page <https://support.fortinet.com/iam/#/all-users>`_. Click the user you created in Step 2.
+In the `IAM Website <https://support.fortinet.com/iam/>`_, click **Users** in the left navigation bar. Click the user you created in Step 2.
 
 In the **API User Information** page, click the **Download Credentials** button in the bottom right to download your user name and password.
 
-To prevent fraud, please set a password when you download your credential file and use this password to uncompress your credential file.
+For security purposes, please set a password when downloading your credential file. You will need this password to extract the file.
 
 .. warning::
 
-  Downloading API User Credentials will reset the Users security credentials each time you perform this action.
+  Downloading the API User Credentials will reset the Users security credentials each time.
 
-  If you download the credentials again, the previous password will become invalid.
+  If you download the credentials again, the password for the previous credential file will no longer be valid.
 
 Refer to the `FortiFlex Administration Guide <https://docs.fortinet.com/product/flex-vm/>`_ for more information about FortiFlex.

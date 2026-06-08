@@ -4,7 +4,9 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.3.1 ``latest``    | 2026/02/11     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.1`` |
+| 2.3.2 ``latest``    | 2026/06/10     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.2`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.3.1               | 2026/02/11     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.1`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 2.3.0               | 2025/05/02     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.0`` |
 +---------------------+----------------+------------------------------------------------------------------+
@@ -30,6 +32,22 @@ FortiFlexVM Galaxy Versions and Release Notes
 **Note**: Use ``-f`` option (i.e.
 ``ansible-galaxy collection install -f fortinet.fortiflexvm:x.x.x``) to
 renew your existing local installation.
+
+
+Release Galaxy 2.3.2
+--------------------
+
+Release Summary
+^^^^^^^^^^^^^^^
+
+Release FortiFlex 2.3.2
+
+Bugfixes
+^^^^^^^^
+
+- Added new arguments `service`, `addons` and `fortiAITokens` to the configuration `fortiManager`;
+- Added new configurations `fortiExtenderHardware` and `fortiDeceptorCloud`;
+- Upgraded ansible-core to 2.16;
 
 
 Release Galaxy 2.3.1

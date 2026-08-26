@@ -207,6 +207,9 @@ Return Values
  <li><span class="li-head">fortiNDRCloud</span> fortiNDR Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
  <li><span class="li-head">meteredUsage</span> Metered Usage. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">playbooks</span> Quantity of Playbooks. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">eps</span> Quantity of EPS. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">addons</span> Add-on services. A list, can be empty. Possible value is "FNDTLI" (3rd-Party Log Intake).<span class="li-normal">type: list</span></li>
  </ul>
  <li><span class="li-head">fortiRecon</span> fortiRecon Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">

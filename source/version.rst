@@ -4,7 +4,9 @@ FortiFlexVM Galaxy Versions and Release Notes
 +---------------------+----------------+------------------------------------------------------------------+
 | Galaxy Version      | Release date   | Path to Install                                                  |
 +=====================+================+==================================================================+
-| 2.3.2 ``latest``    | 2026/06/09     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.2`` |
+| 2.3.3 ``latest``    | 2026/08/27     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.3`` |
++---------------------+----------------+------------------------------------------------------------------+
+| 2.3.2               | 2026/06/12     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.2`` |
 +---------------------+----------------+------------------------------------------------------------------+
 | 2.3.1               | 2026/02/11     | ``ansible-galaxy collection install fortinet.fortiflexvm:2.3.1`` |
 +---------------------+----------------+------------------------------------------------------------------+
@@ -32,6 +34,23 @@ FortiFlexVM Galaxy Versions and Release Notes
 **Note**: Use ``-f`` option (i.e.
 ``ansible-galaxy collection install -f fortinet.fortiflexvm:x.x.x``) to
 renew your existing local installation.
+
+
+Release Galaxy 2.3.3
+--------------------
+
+Release Summary
+^^^^^^^^^^^^^^^
+
+Release FortiFlex 2.3.3
+
+Bugfixes
+^^^^^^^^
+
+- Added new parameters to the fortiNDRCloud configuration.
+- fortiflexvm_entitlements_update - Return the API error message when an entitlement update is rejected.
+- fortiflexvm_entitlements_update - Support new input argument followProgram.
+- Added API response value check.
 
 
 Release Galaxy 2.3.2

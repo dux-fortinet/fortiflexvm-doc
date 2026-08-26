@@ -111,10 +111,7 @@ Parameters
  </ul> <li><span class="li-head">fortiSASE</span> fortiSASE Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self"> <li><span class="li-head">users</span> Number of users. Number between 50 and 50,000 (inclusive). Value should be divisible by 25.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">service</span> Service package. Possible values include "FSASESTD" (Standard), "FSASEADV" (Advanced), "FSASECOM" (Comprehensive).<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
- <li><span class="li-head">bandwidth</span> Deprecated. Use dataTransfer instead. Bandwidth (Mbps). Number between 0 and 10000 (inclusive).<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
  <li><span class="li-head">dedicatedIPs</span> Number between 4 and 65,534 (inclusive). Value should be divisible by 4.<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
- <li><span class="li-head">computeRegion</span> Deprecated. Use computeRegion_FortinetCloud and/or computeRegion_PublicCloud instead. Additional Compute Region. Number between 0 and 16 (inclusive).<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
- <li><span class="li-head">onRampLocations</span> Deprecated. Use onRampLocations_FortinetCloud and/or onRampLocations_PublicCloud instead. SD-WAN On-Ramp Locations. Number between 0 and 8 (inclusive).<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
  <li><span class="li-head">dataTransfer</span> Data Transfer. Number between 0 and 2,500,000 (inclusive). Value should be divisible by 250.<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
  <li><span class="li-head">onRampLocations_FortinetCloud</span> SD-WAN On-Ramp Locations. Number between 0 and 20 (inclusive). It can be scaled up in an increment of 1 but scaling down is NOT allowed.<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
  <li><span class="li-head">onRampLocations_PublicCloud</span> SD-WAN On-Ramp Locations. Number between 0 and 20 (inclusive). It can be scaled up in an increment of 1 but scaling down is NOT allowed.<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
@@ -126,7 +123,8 @@ Parameters
  <li><span class="li-head">addons</span> Add-on services. A list, can be empty. Possible value is "FEDRXDR" (XDR).<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
  <li><span class="li-head">repoStorage</span> Repository Storage. Number between 0 and 30720 (inclusive) It can be scaled up in an increment of 512 but scaling down is NOT allowed.<span class="li-normal">type: int</span><span class="li-normal">default: 0</span></li>
  </ul> <li><span class="li-head">fortiNDRCloud</span> fortiNDR Cloud Configuration.<span class="li-normal">type: dict</span></li>
- <li><span class="li-head">fortiRecon</span> fortiRecon Cloud Configuration.<span class="li-normal">type: dict</span></li>
+ <ul class="ul-self"> <li><span class="li-head">addons</span> Add-on services. A list, can be empty. Possible value is "FNDTLI" (3rd-Party Log Intake). 3rd-Party Log Intake must be active for at least 90 straight days once enabled.<span class="li-normal">type: list</span><span class="li-normal">default: []</span></li>
+ </ul> <li><span class="li-head">fortiRecon</span> fortiRecon Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self"> <li><span class="li-head">service</span> Service package. FRNEASM (External Attack Surface Monitoring); FRNEASMBP (External Attack Surface Monitoring & Brand Protect); FRNEASMBPACI (External Attack Surface Monitoring & Brand Protect & Adversary Centric Intelligence).<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">assets</span> Number of Monitored Assets. Number between 200 and 1,000,000 (inclusive). Value should be divisible by 50.<span class="li-normal">type: int</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">networks</span> Internal Attack Surface Monitoring (number of networks). Number between 0 and 100 (inclusive).<span class="li-normal">type: int</span></li>
@@ -370,7 +368,8 @@ Examples
           #   repoStorage: 0                    # 0 ~ 30720. It can be scaled up in an increment of 512 but scaling down is NOT allowed.
   
           # [FortiNDR Cloud]
-          # fortiNDRCloud: {}                   # Since fortiNDRCloud does not have any parameters, you need to set it as empty.
+          # fortiNDRCloud:
+          #     addons: ["FNDTLI"]              # [] or ["FNDTLI"]
   
           # [FortiRecon]
           # fortiRecon:
@@ -569,6 +568,9 @@ Return Values
  <li><span class="li-head">fortiNDRCloud</span> fortiNDR Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">
  <li><span class="li-head">meteredUsage</span> Metered Usage. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">playbooks</span> Quantity of Playbooks. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">eps</span> Quantity of EPS. Read only.<span class="li-normal">type: int</span></li>
+ <li><span class="li-head">addons</span> Add-on services. A list, can be empty. Possible value is "FNDTLI" (3rd-Party Log Intake).<span class="li-normal">type: list</span></li>
  </ul>
  <li><span class="li-head">fortiRecon</span> fortiRecon Cloud Configuration.<span class="li-normal">type: dict</span></li>
  <ul class="ul-self">

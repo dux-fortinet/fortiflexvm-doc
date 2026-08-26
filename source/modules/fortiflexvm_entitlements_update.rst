@@ -29,7 +29,8 @@ Parameters
  <li><span class="li-head">serialNumber</span> The serial number of the entitlement to update.<span class="li-normal">type: str</span><span class="li-normal">required: True</span></li>
  <li><span class="li-head">configId</span> The ID of the configuration.<span class="li-normal">type: int</span></li>
  <li><span class="li-head">description</span> The description of the entitlement.<span class="li-normal">type: str</span></li>
- <li><span class="li-head">endDate</span> The end date of the entitlement's validity. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss".<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">endDate</span> The end date of the entitlement's validity. Any format that satisfies [ISO 8601](https://www.w3.org/TR/NOTE-datetime-970915.html) is accepted. Recommended format is "YYYY-MM-DDThh:mm:ss". Cannot be specified when followProgram is true.<span class="li-normal">type: str</span></li>
+ <li><span class="li-head">followProgram</span> Whether the entitlement's end date follows the program end date. Cannot be true when endDate is specified.<span class="li-normal">type: bool</span></li>
  <li><span class="li-head">status</span> The status of the entitlement.<span class="li-normal">type: str</span><span class="li-normal">choices: ['ACTIVE', 'STOPPED']</span></li>
  </ul>
 
@@ -52,10 +53,11 @@ Examples
           username: "{{ username }}"
           password: "{{ password }}"
           serialNumber: "FGVMXXXX00000000"
-          # Please specify configId if you want to update configId, description or endDate
+          # Please specify configId if you want to update configId, description, endDate or followProgram
           configId: "{{ config_id }}"
           # description: "Modify through Ansible" # Optional.
-          # endDate: "2024-12-12T00:00:00"        # Optional. If not set, it will use the program end date automatically.
+          # endDate: "2024-12-12T00:00:00"        # Optional. Cannot be specified when followProgram is true.
+          # followProgram: true                   # Optional.
           # status: "ACTIVE"                      # Optional. ACTIVE or STOPPED
         register: result
   
